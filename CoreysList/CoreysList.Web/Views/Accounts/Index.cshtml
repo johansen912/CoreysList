@@ -1,0 +1,89 @@
+﻿@model CoreysList.Web.Models.LoginViewModel
+
+@{
+    Layout = null;
+}
+@Styles.Render("~/Content/Site.css")
+@Styles.Render("~/Content/themes/base/jquery-ui.css")
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body>
+    <div class="login_wrapper">
+        <div class="login_pageContainer">
+            <div class="login_existingAccount">
+                @using (Html.BeginForm("Log_In", "Accounts", FormMethod.Post, new { @class= "login_loginForm", @id ="login"} ))
+                { 
+                    <h4 class="login_form_headers">Log into your coreyslist account</h4>
+                        <label class="login_form_labels">Email:</label>
+                        @Html.TextBoxFor(m => m.LoginEmail)
+                    </p>
+                    <p class="login_form_rows">
+                        <label class="login_form_labels">Password:</label>
+                        @Html.PasswordFor(m => m.LoginPassword)
+                    </p>
+                    if(Model.LoginErrorMessage != null)
+                    {
+                        <div class="error_Message">@Model.LoginErrorMessage</div>
+                    }
+                     <p class="login_form_rows center">
+                        <button type="submit">Log In</button>
+                    </p>
+                }
+            </div>
+            <div class="login_or"> or </div>
+
+            <div class="login_createAccount">
+                @using (Html.BeginForm("Create_Account", "Accounts", FormMethod.Post, new { @class= "login_loginForm", @id="createAccount"} ))
+                { 
+                    <h4 class="login_form_headers">Create your coreyslist account</h4>
+                    <p class="login_form_rows">
+                        <label class="login_form_labels">Email:</label>
+                        @Html.TextBoxFor(m => m.Email)
+                    </p>
+                    <p class="login_form_rows">
+                        <label class="login_form_labels">First Name:</label>
+                        @Html.TextBoxFor(m => m.FirstName)
+                    </p>
+                    <p class="login_form_rows">
+                        <label class="login_form_labels">Last Name:</label>
+                        @Html.TextBoxFor(m => m.LastName)
+                    </p>
+                    <p class="login_form_rows">
+                        @Html.LabelFor(m => m.PhoneNumber, new { @class = "login_form_labels" })
+                        @Html.TextBoxFor(m => m.PhoneNumber, new { @placeholder = "###-##-####" })
+                    </p>
+                    <p class="login_form_rows">
+                        <label class="login_form_labels">New Password:</label>
+                        @Html.PasswordFor(m => m.Password)
+                    </p>
+                    <p class="login_form_rows">
+                        <label class="login_form_labels">Confirm Password:</label>
+                        <input type="password" id="confirmPassword" />
+                    </p>
+                    if (Model.CreateAccountErrorMessage != null)
+                    {
+                        <div class="error_Message">@Model.CreateAccountErrorMessage</div>
+                    }
+                    <p class="login_form_rows center">
+                        <button type="submit">Log In</button>
+                    </p>
+                }
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script type="text/javascript" src="~/Scripts/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery-ui-11.4.min.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery.validate.min.js"></script>
+<script type="text/javascript" src="~/Scripts/additional-methods.min.js"></script>
+<script type="text/javascript" src="~/Scripts/Views/Global.js"></script>
+<script type="text/javascript" src="~/Scripts/Views/Account.Index.js"></script>

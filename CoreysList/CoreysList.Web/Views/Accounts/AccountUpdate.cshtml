@@ -1,0 +1,67 @@
+﻿@model CoreysList.Entity.User
+
+@Styles.Render("~/Content/Site.css")
+@Styles.Render("~/Content/themes/base/jquery-ui.css")
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AccountUpdate</title>
+</head>
+<body>
+    <div class="accountUpdate_wrapper">
+        <div class="accountUpdate_pageContainer">
+            <div class="accountUpdate_headersContainer">
+                <div class="accountUpdate_pageHeader_CoreysList"><a href="@Url.Action("Index", "Home")">Coreys List ></a></div>
+                <div class="accountUpdate_pageHeader_UserHome"><a href="@Url.Action("UserHome", "Accounts")"> &nbsp;@Model.FirstName @Model.LastName</a></div>
+            </div>
+            
+             @using (Html.BeginForm("AccountUpdate", "Accounts", FormMethod.Post, new { @class = "accounts_updateForm", @id = "updateAccount" }))
+             {
+                 @Html.HiddenFor(m => m.UserID)
+                 
+                <table class="accountUpdate_table">
+                    <tr class="accountUpdate_tableRow">
+                        <td class="accountUpdate_rowLabel">email adress</td>
+                        <td class="accountUpdate_rowContent"><span class="emailText">@Model.Email</span>  @Html.TextBoxFor(m => m.Email) <span class="emailChange">[<span class="changeLink">change</span>]</span></td>
+                    </tr>
+                    <tr class="accountUpdate_tableRow">
+                        <td class="accountUpdate_rowLabel">password</td>
+                        <td class="accountUpdate_rowContent"><span class="passwordText">@Model.Password</span>  @Html.TextBoxFor(m => m.Password) <span class="passwordChange">[<span class="changeLink">change</span>]</span></td>
+                    </tr>
+                    <tr class="accountUpdate_tableRow">
+                        <td class="accountUpdate_rowLabel">first name</td>
+                        <td class="accountUpdate_rowContent"><span class="firstNameText">@Model.FirstName</span>  @Html.TextBoxFor(m => m.FirstName) <span class="firstNameChange">[<span class="changeLink">change</span>]</span></td>
+                    </tr>
+                    <tr class="accountUpdate_tableRow">
+                        <td class="accountUpdate_rowLabel">last name</td>
+                        <td class="accountUpdate_rowContent"><span class="lastNameText">@Model.LastName</span>  @Html.TextBoxFor(m => m.LastName) <span class="lastNameChange">[<span class="changeLink">change</span>]</span></td>
+                    </tr>
+                    <tr class="accountUpdate_tableRow">
+                        <td class="accountUpdate_rowLabel">phone number</td>
+                        <td class="accountUpdate_rowContent"><span class="phoneNumberText">@Model.PhoneNum</span>  @Html.TextBoxFor(m => m.PhoneNum) <span class="phoneNumberChange">[<span class="changeLink">change</span>]</span></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="submitRow"><button type="submit">Submit Changes</button></td>
+                    </tr>
+                </table>
+             }
+        </div>
+        
+    </div>
+
+    <script type="text/javascript" src="~/Scripts/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery-ui-11.4.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/additional-methods.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/Views/Global.js"></script>
+    <script type="text/javascript" src="~/Scripts/Views/Account.AccountUpdate.js"></script>
+</body>
+</html>

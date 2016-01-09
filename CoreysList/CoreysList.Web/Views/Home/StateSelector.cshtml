@@ -1,0 +1,28 @@
+﻿
+@using CoreysList.Web
+@using CoreysList.Web.Models
+@model CoreysList.Web.Models.StateSelectorViewModel
+@using CoreysList.Entity
+@Styles.Render("~/Content/Site.css")
+
+@{
+    Layout = null;
+}
+
+<div class="stateSelector_wrapper">
+    <div class="stateSelector_pageContainer">
+        <div class="stateSelector_stateHeader"> @Model.StateName</div>
+        <ul class="stateSelector_cityList">
+            @foreach (City city in Model.Cities)
+            {
+                <li class="stateSelector_cityItem" cityId="@city.CityID"> @city.CityName </li>
+            }
+        </ul>
+    </div>
+    <div class="footer">Created by: Corey Johansen</div>
+</div>
+
+<script type="text/javascript" src="~/Scripts/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery-ui-11.4.min.js"></script>
+<script type="text/javascript" src="~/Scripts/Views/Global.js"></script>
+<script type="text/javascript" src="~/Scripts/Views/Home.StateSelector.js"></script>

@@ -1,0 +1,99 @@
+﻿@model CoreysList.Web.Models.UserHomeViewModel
+@using CoreysList.Entity
+@using CoreysList.Web.Models
+
+@{
+    Layout = null;
+}
+
+@Styles.Render("~/Content/Site.css")
+@Styles.Render("~/Content/themes/base/jquery-ui.css")
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>UserHome</title>
+</head>
+<body>
+    <div class ="userHome_wrapper">
+        <div class="userHome_pageContainer">
+            <div class="userHome_pageHeader_profileLink_Container">
+                <div class="userHome_pageHeader"><a href="@Url.Action("Index", "Home")">Corey's List</a> - @Model.UserName</div>
+                <div class="userHome_newPostingsLabel"><a id="newPosting" listingId="-1">New Posting</a>&nbsp; &nbsp; &nbsp;|</div>
+                <div class="userHome_profileLink"><a href="@Url.Action("AccountUpdate", "Accounts")">User Profile</a>&nbsp; &nbsp; &nbsp;|</div>
+                <div class="userHome_logOut"><a href="@Url.Action("LogOut", "Accounts")">Log Out</a></div>
+            </div>
+
+            @Html.HiddenFor(model => model.TabId)
+
+            <div class="userHome_postingsHeader">Postings</div>
+            <div id="userHome_filter_tabs">
+                 <ul>
+                    <li><a href="#userHome_allListings_Content" class="listingsTabs" tabId="0">All Listings</a></li>
+                    <li><a href="#userHome_activeListings_Content" class="listingsTabs" tabId="1">Active Listings</a></li>
+                    <li><a href="#userHome_inactiveListings_Content" class="listingsTabs" tabId="2">Inactive Listings</a></li>
+                </ul>
+                <div class="userHome_listing_refreshBtn">Refresh</div>
+                <div class="clear"></div>
+                <div id="userHome_allListings_Content" class="userHome_tab_content">
+                    <table class="listingsTable">
+                        @foreach(Listing listing in Model.AllUserListings)
+                        {
+                            <tr class="userHome_listing">
+                                <td class="userHome_listing_date">@listing.CreatedDate.ToShortDateString()</td> 
+                                <td class="userHome_listing_headLine">@listing.Headline @(listing.Location.Length > 0 ? " - " + listing.Location : "")</td> 
+                                <td class="userHome_listing_td_edit"><span class="userHome_listing_edit link" listingId ="@listing.ListingID">edit</span>  &nbsp; |</td>   
+                                <td class="userHome_listing_td_editImgs"><span class="userHome_listing_editImgs link" listingId ="@listing.ListingID">images</span>  &nbsp; |</td>
+                                <td class="userHome_listing_td_activate"><span class="userHome_listing_activate link" listingId ="@listing.ListingID"> @(listing.IsActive ? "deactivate" : "activate") </span></td>   
+                            </tr>
+                        }
+                    </table>
+                </div>
+                <div id="userHome_activeListings_Content" class="userHome_tab_content">
+                    <table class="listingsTable">
+                        @foreach (Listing listing in Model.ActiveUserListings)
+                        {
+                            <tr class="userHome_listing">
+                                <td class="userHome_listing_date">@listing.CreatedDate.ToShortDateString()</td>
+                                <td class="userHome_listing_headLine">@listing.Headline @(listing.Location.Length > 0 ? " - " + listing.Location : "")</td>
+                                <td class="userHome_listing_td_edit"><span class="userHome_listing_edit link" listingId ="@listing.ListingID">edit</span>  &nbsp; |</td>
+                                <td class="userHome_listing_td_editImgs"><span class="userHome_listing_editImgs link" listingId ="@listing.ListingID">images</span>  &nbsp; |</td>
+                                <td class="userHome_listing_td_activate"><span class="userHome_listing_activate link" listingId ="@listing.ListingID">deactivate </span> </td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+                <div id="userHome_inactiveListings_Content" class="userHome_tab_content">
+                    <table class="listingsTable">
+                        @foreach (Listing listing in Model.InactiveUserListings)
+                        {
+                            <tr class="userHome_listing">
+                                <td class="userHome_listing_date">@listing.CreatedDate.ToShortDateString()</td>
+                                <td class="userHome_listing_headLine">@listing.Headline @(listing.Location.Length > 0 ? " - " + listing.Location : "")</td>
+                                <td class="userHome_listing_td_edit"><span class="userHome_listing_edit link" listingId ="@listing.ListingID">edit</span>  &nbsp; |</td>
+                                <td class="userHome_listing_td_editImgs"><span class="userHome_listing_editImgs link" listingId ="@listing.ListingID">images</span>  &nbsp; |</td>
+                                <td class="userHome_listing_td_activate"><span class="userHome_listing_activate link" listingId ="@listing.ListingID"> activate </span> </td>
+                            </tr>
+                        }
+                    </table>
+                </div>   
+            </div> 
+        </div>
+    </div>
+    <div id="userHome_listing_editModal" title="Add/Edit Listing">
+    </div>   
+    <div id="userHome_listing_editImgsModal" title="Add/Edit Listing Images">
+    </div>   
+</body>
+</html>
+
+
+<script type="text/javascript" src="~/Scripts/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery-ui-11.4.min.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery.validate.min.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+<script type="text/javascript" src="~/Scripts/additional-methods.min.js"></script>
+<script type="text/javascript" src="~/Scripts/Views/Global.js"></script>
+<script type="text/javascript" src="~/Scripts/Views/Account.UserHome.js"></script>
