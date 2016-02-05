@@ -1,0 +1,8 @@
+C:\Users\Corey\documents\visual studio 2013\Projects\CoreysList\CoreysList.Entity\bin\Debug\CoreysList.Entity.dll.config
+C:\Users\Corey\documents\visual studio 2013\Projects\CoreysList\CoreysList.Entity\bin\Debug\CoreysList.Entity.dll
+C:\Users\Corey\documents\visual studio 2013\Projects\CoreysList\CoreysList.Entity\bin\Debug\CoreysList.Entity.pdb
+C:\Users\Corey\documents\visual studio 2013\Projects\CoreysList\CoreysList.Entity\bin\Debug\EntityFramework.dll
+C:\Users\Corey\documents\visual studio 2013\Projects\CoreysList\CoreysList.Entity\bin\Debug\EntityFramework.xml
+C:\Users\Corey\documents\visual studio 2013\Projects\CoreysList\CoreysList.Entity\obj\Debug\CoreysList.Entity.csprojResolveAssemblyReference.cache
+C:\Users\Corey\documents\visual studio 2013\Projects\CoreysList\CoreysList.Entity\obj\Debug\CoreysList.Entity.dll
+C:\Users\Corey\documents\visual studio 2013\Projects\CoreysList\CoreysList.Entity\obj\Debug\CoreysList.Entity.pdb

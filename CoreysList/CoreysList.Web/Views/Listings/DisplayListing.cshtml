@@ -1,0 +1,64 @@
+﻿@model CoreysList.Web.Models.DisplayListingViewModel
+@using CoreysList.Web
+@using CoreysList.Web.Models
+@using CoreysList.Entity
+@Styles.Render("~/Content/Site.css")
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <meta name="viewport" content="width=device-width" />
+    <title>DisplayListing</title>
+</head>
+<body>
+     @Html.HiddenFor(model => model.SubCatId)
+    <div class="displayListing_wrapper">
+        <div class="displayListing_content">
+            <div class="displayListing_content_breadCrumb">
+                <div class="displayListing_breadCrumb_homeLink">Corey's List </div><div class="displayListing_breadCrumb_homeLink"> > @Model.ListingToDisplay.City.CityName </div>  <div class="displayListing_breadCrumb_subCatLink"> > @Model.ListingToDisplay.SubCategory.SubCategoryName</div>
+                <div class="clear"></div>
+            </div>
+            <div class="displayListing_contentHeader">
+                @Model.ListingToDisplay.Headline - @Model.ListingToDisplay.Price (@Model.ListingToDisplay.City.CityName, @Model.ListingToDisplay.City.State.StateAbbrv)
+            </div>
+            <div class="displayListing_content_MainImage">
+                @if (Model.ListingToDisplay.Images.Count() > 0)
+                {
+                    <img src="/Images/GetImage/@Model.ListingToDisplay.Images.FirstOrDefault().ImageID" class="mainImgDisplay" />
+                }
+                else
+                {
+                    <img src="/Images/GetImage/-1"  class="mainImgDisplay"/>
+                }
+            </div>
+            <div class="displayListing_content_Thumbs">
+                @foreach (Image image in @Model.ListingToDisplay.Images)
+                {
+                    <div class="displayListing_content_ThumbPic_Container" imgId=@image.ImageID ><img src="/Images/GetThumb/@image.ImageID" class="displayListing_content_ThumbPic" /></div>
+                }
+            </div>
+            <div class="displayListing_content_discription">
+               <p>@Model.ListingToDisplay.Description</p>
+               <div> Listing Id: @Model.ListingToDisplay.ListingID - @Model.ListingToDisplay.CreatedDate.ToString("MM/dd/yy") - <a href="mailto:@Model.ListingToDisplay.User.Email" target="_top">Email Seller</a></div>
+            </div>
+        </div>
+    </div>
+
+<script type="text/javascript" src="~/Scripts/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery-ui-11.4.min.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery.validate.min.js"></script>
+<script type="text/javascript" src="~/Scripts/additional-methods.min.js"></script>
+<script type="text/javascript" src="~/Scripts/Views/Global.js"></script>
+<script type="text/javascript" src="~/Scripts/Views/Listings.DisplayListing.js"></script>
+
+</body>
+</html>

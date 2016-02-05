@@ -1,0 +1,107 @@
+﻿@model CoreysList.Web.Models.ViewListingsViewModel
+@using CoreysList.Web
+@using CoreysList.Web.Models
+@using CoreysList.Entity
+@Styles.Render("~/Content/Site.css")
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <meta name="viewport" content="width=device-width" />
+    <title>ViewListings</title>
+</head>
+<body>
+    <div class="viewListings_wrapper">
+        <div class="viewListings_pageContainer">
+            <div class="viewListings_header">
+                <div class="viewListings_header">
+                    <span id="viewListings_header_returnLink">Corey's List</span>
+                    <span id="viewListings_header_currentCity">> @Model.CityName</span>
+                </div>
+            </div>
+            <div class="viewListings_leftContent">
+               <div class="viewListings_leftContentHeader">@Model.SubCatHeader</div> 
+                
+                 @using (Html.BeginForm("ApplyListingsFilters", "Listings", FormMethod.Post, new { @class = "applyListingFilters", @id = "listingFilters" }))
+                 {
+                     @Html.HiddenFor(model => model.TabId)
+                     @Html.HiddenFor(model => model.CityName)
+                     @Html.HiddenFor(model => model.SubCatHeader)
+                     @Html.HiddenFor(model => model.CityId)
+                     @Html.HiddenFor(model => model.SubCatId)
+                     
+                    <ul class="viewListings_leftContentFilter">
+                        <li id="check1">
+                            @Html.CheckBoxFor(m => m.PostedTodayFilter, new { @checked = "true" })
+                            <label for="check2">Posted Today</label>
+                        </li>
+                        <li id="check2">
+                             @Html.CheckBoxFor(m => m.HasImageFilter, new { @checked = "true" })
+                            <label for="check3">Has Image</label>
+                        </li>
+                    </ul>
+                    <button type="submit" id="applyFiltersBtn">Apply Filters</button>
+                 }               
+            </div>   
+             <div class="viewListings_rightContent">
+                <div id="listingFilterTabs">
+                    <ul>
+                        <li><a href="#listingContent" tabId="0" class="viewListingsTabs">Listings</a></li>
+                        <li><a href="#thumbContent" tabId="1" class="viewListingsTabs">Thumbs</a></li>
+                        <li><a href="#galleryContent" tabId="2" class="viewListingsTabs">Gallery</a></li>
+                    </ul>
+                    <div id="listingContent">
+                        <table>
+                            @foreach(Listing listing in Model.Listings)
+                            {
+                                <tr class="viewListings_listing listingLink" listingId = @listing.ListingID>
+                                    <td class="viewListings_listing_date">@listing.CreatedDate.ToString("MM/dd/yy")</td>
+                                    <td class="viewListings_listing_headLine">@listing.Headline</td>
+                                    <td class="viewListings_listing_location">- (@listing.Location)</td>
+                                    <td class="viewListings_listing_price">@listing.Price.ToString("0.00")</td>
+                                </tr>
+                            }
+                        </table>
+                    </div>
+                    <div id="thumbContent">
+                            @foreach(Listing listing in Model.Listings)
+                            {
+                                <div class="viewListings_thumbListing listingLink" listingId = @listing.ListingID>          
+                                    <div class="viewListings_thumbListing_thumb"><img src="/Images/GetThumb/@(listing.Images.Count() > 0 ? listing.Images.FirstOrDefault().ImageID : -1)" /></div>
+                                    <div class="viewListings_thumbListing_thumbdesc">@listing.Headline</div>
+                                    <div class="clear"></div>
+                                </div>                               
+                            }
+                    </div>
+                    <div id="galleryContent">
+                        @foreach(Listing listing in Model.Listings)
+                            {
+                                <div class="viewListings_galleryListing listingLink" listingId = @listing.ListingID>          
+                                    <p><img src="/Images/GetImage/@(listing.Images.Count() > 0 ? listing.Images.FirstOrDefault().ImageID : -1)" /></p>
+                                    @listing.Headline
+                                </div>                               
+                            }
+                    </div>
+                </div>
+            </div>
+        </div>        
+    </div>
+
+<script type="text/javascript" src="~/Scripts/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery-ui-11.4.min.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery.validate.min.js"></script>
+<script type="text/javascript" src="~/Scripts/additional-methods.min.js"></script>
+<script type="text/javascript" src="~/Scripts/Views/Global.js"></script>
+<script type="text/javascript" src="~/Scripts/Views/Listings.ViewListings.js"></script>
+
+</body>
+</html>
