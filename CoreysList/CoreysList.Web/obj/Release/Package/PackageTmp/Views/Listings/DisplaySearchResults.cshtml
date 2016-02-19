@@ -1,0 +1,119 @@
+﻿@using CoreysList.Web
+@using CoreysList.Web.Models
+@using CoreysList.Entity
+@model CoreysList.Web.Models.DisplaySearchResultsViewModel
+@Styles.Render("~/Content/Site.css")
+@Styles.Render("~/Content/themes/base/jquery-ui.css")
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <meta name="viewport" content="width=device-width" />
+    <title>displaySearchResults</title>
+</head>
+<body>
+    <div class="displaySearchResults_wrapper">
+        <div class="displaySearchResults_pageContainer">
+            <div class="displaySearchResults_header">
+                <div class="displaySearchResults_header">
+                    <span id="displaySearchResults_header_returnLink">Corey's List</span>
+                    <span id="displaySearchResults_header_currentCity">> Search Results</span>
+                </div>
+            </div>
+            <div class="displaySearchResults_leftContent">
+                <div class="displaySearchResults_leftContentHeader">Search Filters</div>
+
+                @using (Html.BeginForm("FilterSearchResults", "Listings", FormMethod.Post, new { @class = "applyListingFilters", @id = "listingFilters" }))
+                 {
+                    @Html.HiddenFor(model => model.TabId)
+                    @Html.HiddenFor(model => model.SearchTerm)
+                    @Html.HiddenFor(model => model.PriceMaxFilter, new { id = "priceMax" })
+                    @Html.HiddenFor(model => model.PriceMinFilter, new { id = "priceMin" })
+                    
+                    <ul class="displaySearchResults_leftContentFilter">
+                        <li id="stateFilter">
+                            <label for="stateFilter">State</label>
+                            @Html.DropDownListFor(model => model.SelectedStateIdFilter, @Model.States, "-- Select State --", new { @id= "statesSelectList"})
+                        </li>
+                        <li id="cityFilter">
+                            <label for="cityFilter">City</label><br />
+                            @Html.DropDownListFor(model => model.SelectedCityIdFilter, @Model.Cities, "-- Select City --", new { @id= "citiesSelectList"})<br />
+                        </li>
+                        <li id="priceSlider">
+                            <p>
+                          <label for="amount">Price range:</label>
+                          <input type="text" id="amount" readonly style="border:0; color:#0a47b4; font-weight:bold;">
+                        </p>
+                            <div id="slider-range" readonly style="width: 80%;"></div>
+                        </li>
+                    </ul>
+                    <button type="submit" id="applyFiltersBtn">Apply Filters</button>
+                 }
+            </div>
+            <div class="displaySearchResults_rightContent">
+                <div id="listingFilterTabs">
+                    <ul>
+                        <li><a href="#listingContent" tabid="0" class="displaySearchResultsTabs">Listings</a></li>
+                        <li><a href="#thumbContent" tabid="1" class="displaySearchResultsTabs">Thumbs</a></li>
+                        <li><a href="#galleryContent" tabid="2" class="displaySearchResultsTabs">Gallery</a></li>
+                    </ul>
+                    <div id="listingContent">
+                        <table>
+                            @foreach(Listing listing in Model.Listings)
+                              {
+                                <tr class="displaySearchResults_listing listingLink" listingid=@listing.ListingID>
+                                    <td class="displaySearchResults_listing_date">@listing.CreatedDate.ToString("MM/dd/yy")</td>
+                                    <td class="displaySearchResults_listing_headLine">@listing.Headline</td>
+                                    <td class="displaySearchResults_listing_location">@listing.Location</td>
+                                    <td class="displaySearchResults_listing_location">@listing.City.CityName</td>
+                                    <td class="displaySearchResults_listing_location">- @listing.City.State.StateName</td>
+                                    <td class="displaySearchResults_listing_location">@listing.SubCategory.SubCategoryName</td>
+                                    <td class="displaySearchResults_listing_location">@listing.SubCategory.Category.CategoryName</td>
+                                    <td class="displaySearchResults_listing_price">@listing.Price.ToString("0.00")</td>
+                                </tr>    
+                            }   
+                        </table>
+                    </div>
+                    <div id="thumbContent">
+                            @foreach (Listing listing in Model.Listings)
+                            {
+                                <div class="displaySearchResults_thumbListing listingLink" listingid=@listing.ListingID>
+                                    <div class="displaySearchResults_thumbListing_thumb"><img src="/Images/GetThumb/@(listing.Images.Count > 0 ? listing.Images.FirstOrDefault().ImageID : -1)" /></div>
+                                    <div class="displaySearchResults_thumbListing_thumbdesc">@listing.Headline</div>
+                                    <div class="clear"></div>
+                                </div>
+                            }     
+                    </div>
+                    <div id="galleryContent">
+                        @foreach(Listing listing in Model.Listings)
+                            {
+                            <div class="displaySearchResults_galleryListing listingLink" listingid=@listing.ListingID>
+                                <p><img src="/Images/GetImage/@(listing.Images.Count() > 0 ? listing.Images.FirstOrDefault().ImageID : -1)" /></p>
+                                @listing.Headline
+                            </div>
+                            }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="~/Scripts/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery-ui-11.4.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/additional-methods.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/Views/Global.js"></script>
+    <script type="text/javascript" src="~/Scripts/Views/Listings.DisplaySearchResults.js"></script>
+
+</body>
+</html>
+

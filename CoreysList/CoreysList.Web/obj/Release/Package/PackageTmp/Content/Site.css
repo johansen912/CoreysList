@@ -1,0 +1,227 @@
+﻿/***************************************/
+/*Global*/
+/***************************************/
+body { min-height: 100%; padding-bottom: 40px; }
+.footer { height: 35px; background-color: #e0e1e2; position: fixed; bottom: 0px; width: 100%; border-top: 1px solid black; padding-top: 5px; font-size: 12px; text-align: center;  } 
+.center { margin-left: auto; margin-right: auto; text-align: center; }
+.clear { clear:both }
+.error { color:#ff0000; margin-left: 7px; font-size: 12px; }
+.link { color: #0a47b4; cursor: pointer;  }
+.ui-tabs-anchor {font-size: 13px; }
+
+/***************************************/
+/*HOME PAGE*/
+/***************************************/
+.home_wrapper {font-family: "Arial",sans-serif; vertical-align: baseline; height: 100%; width: 100%; position: relative; background-color: white; padding: 0px; margin: 0px; }
+    .home_pageContainer { display: block; vertical-align: baseline;  margin-left: auto; margin-right: auto; height: auto; width: 910px ; background-color: grey; position: relative; }
+        .home_leftBar {  border-left: 1px solid #808080; border-right: 1px solid #808080; vertical-align: top; min-height: 100%; width: 200px; float: left; text-align: center; background-color: #e0e1e2; position: relative;  height: 100%; }
+            .home_leftBar_logo{ margin-top: 10px; font-size: 20px; color: #0a47b4 ; margin-left: auto; margin-right: auto; text-shadow: 2px 2px 2px #CCCCCC; width: auto; cursor: pointer; }
+            .home_leftBar_menu{ text-align: left; color: #0a47b4; list-style-type: none; padding-left: 15px; }
+                .home_leftBar_menu_item{ padding-bottom: 10px; cursor: pointer;}
+            .home_modal_faq { display: none; }
+               .home_faq_modal_list { }
+                    .home_faq_modal_list_item { font-weight: bold; font-size: 13px; padding-bottom: 7px;}
+                        .faq_answers { font-weight: normal; }
+            .home_modal_avoidscams{ display: none; }
+                .home_avoidscams_modal_list{ }
+                    .home_avoidscams_modal_list_item{ font-weight: 400; font-size: 16px; padding-bottom: 7px; }
+            .home_modal_personalSafetyTips{ display: none; }
+                .home_personalSafetyTips_modal_list{ }
+                    .home_personalSafetyTips_modal_list_item{ font-weight: 400; font-size: 16px; padding-bottom: 7px; }
+            .home_modal_termsOfUse{ display: none; }
+                .home_termsOfUse_modal_list{ }
+                    .home_termsOfUse_modal_list_item{ font-size: 12px; padding-bottom: 5px; }
+            .home_modal_privacyPolicy{ display: none; }
+                .home_privacyPolicy_modal_list{list-style-type: initial; }
+                    .home_privacyPolicy_modal_list_item{ padding-bottom: 5px; }
+                        .home_privacyPolicy_modal_sub_list{ }
+                            .home_privacyPolicy_modal_sub_list_item{ font-size: 15px; padding-bottom: 2px; }
+        .home_center { display: block; float: left; width: 600px; min-height: 760px; background-color: aliceblue; position: relative; }
+            .home_topBanner_container {  text-align: center; width: 600px; height: 40px; background-color: white; }
+                 .home_topBanner_content{ width: 500px; border-top: 1px solid #808080; border-bottom: 1px solid #808080; font-weight: 300; background-color: #eae8e8; margin-left: auto; margin-right: auto; height: 38px; padding-top: 5px; }
+            .home_center_leftContent { display: block; vertical-align: baseline; min-height: 751px; width: 200px; background-color: white; float: left; }
+            .home_center_centerContent { display: block; vertical-align: baseline; min-height: 751px; width: 200px; float: left; background-color: white; }
+            .home_center_rightContent { display: block; vertical-align: baseline; min-height: 751px; width: 200px; float: left; background-color: white; text-align: left; }
+                .home_center_category_header{ font-size: 17px; border-top: 1px solid #808080; border-bottom: 1px solid #808080; color: #0a47b4; width: 150px; margin-left: auto; margin-right: auto; text-align: center; margin-top: 20px; padding-top: 5px; padding-bottom: 5px; background-color: #e0e1e2; }
+                .home_center_subcategory_list{ list-style-type: none; margin-left: auto; margin-right: auto; }
+                    .home_center_subcategory_list_item{ color: #0a47b4; font-size:13px; cursor: pointer; padding-bottom: 5px; }
+        .home_rightBar { border-left: 1px solid #808080; border-right: 1px solid #808080; display: block; width: 100px; min-height: 100%; background-color: #e0e1e2; float: left; position: relative; height: 100%; }
+            .home_rightBar_usCitiesHeader { color: #0a47b4 ; text-align: center; margin-top: 5px; }
+            .home_rightBar_usCitiesList { margin-left: -20px; margin-top: 1px; }
+                .home_rightBar_usCitiesItem { list-style-type: none; font-size: 11px; color: #0a47b4; padding-bottom: 2px; cursor: pointer; }
+            .home_rightBar_usStatesHeader { color: #0a47b4 ; text-align: center; margin-top: 5px; }
+            .home_rightBar_usStatesList { margin-left: -20px; margin-top: 1px; }
+                .home_rightBar_usStatesItem { list-style-type: none; font-size: 11px; color: #0a47b4; padding-bottom: 2px; cursor: pointer; }  
+
+/***************************************/
+/*LOCATOR PAGE*/
+/***************************************/
+.locator_wrapper { font-family: "Arial",sans-serif; vertical-align: baseline; min-height: 100%; width: 100%; position: relative; background-color: white;  }
+    .locator_pageContainer { display: block; vertical-align: baseline;  margin-left: auto; margin-right: auto; height: auto; width: 800px ; background-color: white; position: relative; }
+        .locator_logo { padding-top:20px; display: block; vertical-align: baseline;  margin-left: auto; margin-right: auto; height: 100px ; width: 800px ; background-color: white; position: relative; text-align: center; font-size: 70px; margin-bottom: 0px; text-decoration:wavy; }
+        .locator_instuctions { display: block; vertical-align: baseline;  margin-left: auto; margin-right: auto; height: 50px ; width: 800px ; background-color: white; position: relative; text-align: left; font-family: "Times New Roman",Times,serif; font-size: 25px; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #808080; margin-bottom: 5px; }
+        .locator_stateColumn1 {  display: block; vertical-align: baseline; min-height: 760px; width: 200px; background-color:white; float: left; padding-top : 9px;}
+            .locator_stateColumn1_cityList { margin-top: 5px; }
+            .locator_stateColumn_listItem { list-style-type: none; color: #0a47b4; cursor: pointer; }
+        .locator_stateColumn2 {  display: block; vertical-align: baseline; min-height: 760px; width: 200px; background-color: white; float: left; padding-top : 9px; }
+            .locator_stateColumn2_cityList { margin-top: 5px; }
+        .locator_stateColumn3 {  display: block; vertical-align: baseline; min-height: 760px; width: 200px; background-color: white; float: left; padding-top :9px; }
+            .locator_stateColumn3_cityList { margin-top: 5px; }
+        .locator_stateColumn4 {  display: block; vertical-align: baseline; min-height: 760px; width: 200px; background-color : white; float: left; padding-top : 9px; }
+            .locator_stateColumn4_cityList { margin-top: 5px; }
+            .locator_state_header { padding-left: 10px; margin-top: -5px; }
+            .locator_lowerBorder { width: 120px; margin-left: auto; margin-right: auto; border-bottom-style: solid; border-bottom-width: 1px; border-bottom-color: #808080; margin-bottom: 10px; }
+
+/***************************************/
+/*STATESELECTOR PAGE*/
+/***************************************/
+.stateSelector_wrapper { font-family: "Arial",sans-serif; vertical-align: baseline; min-height: 100%; width: 100%; position: relative; background-color: white; }
+    .stateSelector_pageContainer{ display: block; vertical-align: baseline;  margin-left: auto; margin-right: auto; height: auto; width: 800px ; background-color: white; position: relative; text-align: center;}
+        .stateSelector_stateHeader {  padding-top:20px; display: block; vertical-align: baseline;  margin-left: auto; margin-right: auto; width: 800px; background-color: white; position: relative; text-align: center; font-size: 40px; margin-bottom: 0px; text-decoration:wavy; } 
+        .stateSelector_cityList { margin-left: auto; margin-right: auto; text-align: left; width: 150px; }
+            .stateSelector_cityItem { list-style-type: none; font-size: 20px; color: #0a47b4; padding-bottom: 6px; cursor: pointer; }
+
+/***************************************/
+/*LOGIN PAGE*/
+/***************************************/
+.login_wrapper { font-family: "Arial",sans-serif; vertical-align: baseline; height: 100%; width: 100%; position: relative; background-color: white; }
+    .login_pageContainer { display: block; vertical-align: baseline;  margin-left: auto; margin-right: auto; height: auto; width: 800px ; background-color: white; position: relative; }
+        .login_existingAccount { border: 1px solid #808080; width: 700px; margin-left: auto; margin-right: auto; }
+            .login_loginForm { width: 700px; margin-left: auto; margin-right: auto; }
+                .login_form_headers{ text-align:center;  width: 100% ; margin-left: auto; margin-right: auto; background-color: #e0e1e2; height: 40px; padding-top: 15px; margin-top: 0px; }
+                .login_form_rows {  }
+                    .login_form_rows input { width: 250px;  }
+                .login_form_labels{ width: 250px; text-align: right; display: inline-block; }
+        .login_or { margin-left: auto; margin-right: auto; width: 20px; font-size: 20px; margin-top: 15px; margin-bottom: 15px; }
+        .login_createAccount { border: 1px solid #808080; width: 700px; margin-left: auto; margin-right: auto; }
+            .error_Message { color: red; font-size: 15px; width: 200px; margin-left: auto; margin-right: auto; text-align: center; padding: 5px; }
+/***************************************/
+/*User Home*/
+/***************************************/
+ .userHome_wrapper { font-family: "Arial",sans-serif; vertical-align: baseline; height: 100%; width: 100%; position: relative; background-color: white; }  
+    .userHome_pageContainer { display: block; vertical-align: baseline;  margin-left: auto; margin-right: auto; height: auto; width: 800px ; background-color: white; position: relative; }
+        .userHome_pageContainer a { text-decoration: none; }
+        .userHome_pageHeader_profileLink_Container{ margin-bottom: 20px; margin-top: 20px; }
+            .userHome_pageHeader { display: inline-block; color: #0a47b4; font-size: 18px; }
+            .userHome_newPostingsLabel { display: inline-block; color: #0a47b4; font-size: 15px; padding-left: 100px;}
+                #newPosting { cursor: pointer; }
+            .userHome_profileLink { display: inline-block; color: #0a47b4; font-size: 15px; padding-left: 10px; }
+            .userHome_logOut { display: inline-block; color: #0a47b4; font-size: 15px; padding-left: 10px;  }
+        .userHome_postingsHeader  { display: inline-block; color: #0a47b4; font-size: 18px; width: 100px; padding-left: 5px; margin-bottom: 15px; }
+        #userHome_filter_tabs { }
+            #userHome_filter_tabs li { font-size: 14px; }
+            .userHome_tab_content { height: 420px; }
+        .userHome_listing_refreshBtn { float: right; margin-right: 98px; margin-top: 10px; font-size: 15px;  cursor: pointer; color: #0a47b4; }
+        .listingsTable { width: 750px;}
+            .userHome_listing { }
+            .userHome_listing td { font-size: 14px; border-bottom: 2px solid #e0e1e2; padding-bottom: 7px; padding-top: 7px; padding-left: 0px; padding-right: 0px; margin: 0px;  }
+                .userHome_listing_date { }
+                .userHome_listing_headLine { }
+                .userHome_listing_edit { width: 58px;  }
+                .userHome_listing_td_edit { width: 50px;}
+                .userHome_listing_td_editImgs { width: 67px; }
+                .userHome_listing_td_activate {  width: 50px; }
+
+/***************************************/
+/*_Edit Listings Partial*/
+/***************************************/
+.editListing_table { border-collapse: collapse; }
+    .editListing_tableRow { }
+        .editListing_tableRow_label { padding-top: 10px; }
+        .editListing_tableRow_content { padding-top: 10px; padding-left: 15px; }
+            .editListing_tableRow_content_discription { height: auto; width: 300px; padding-top: 10px;   }
+            #description { height: 400px; width: 400px; padding-top: 10px; }
+
+/***************************************/
+/*_Upload Images Partial*/
+/**************************************/
+    .editListingImages_pageContainer { }
+        .editListingImages_instructions { font-size: 14px; }
+        .editListingImages_uploadBar { padding: 5px; }
+        .editListingImages_galleryContainer { }
+            .uploadedImagesTable { width: 100%; }
+                .uploadedImagesTable td { padding: 5px; text-align: center; }
+                .uploadImages_DeleteBtn { cursor: pointer; }
+/***************************************/
+/*Account Update Page*/
+/***************************************/            
+  .userHome_wrapper { font-family: "Arial",sans-serif; vertical-align: baseline; height: 100%; width: 100%; position: relative; background-color: white; }    
+    .userHome_pageContainer { display: block; vertical-align: baseline;  margin-left: auto; margin-right: auto; height: auto; width: 800px ; background-color: white; position: relative; }
+        .accountUpdate_headersContainer{ padding-left: 150px; }
+            .accountUpdate_pageHeader_CoreysList { padding-left: 35px; font-size: 25px; color: #0a47b4; cursor: pointer; text-decoration: none; display:inline-block;   }
+                .accountUpdate_pageHeader_CoreysList a { text-decoration: none; }
+            .accountUpdate_pageHeader_UserHome { font-size: 20px; color: #0a47b4; cursor: pointer; text-decoration: none; display:inline-block;   }
+                .accountUpdate_pageHeader_UserHome a { text-decoration: none; }
+         .accountUpdate_table { width: 600px; margin-left: auto; margin-right:auto; padding-top: 40px; font-size: 17px; border-spacing: 10px;}
+            .accountUpdate_tableRow {}
+                .accountUpdate_rowLabel { border: 1px solid black; background-color: #e0e1e2; padding: 5px; text-align: left; width: 120px;  }
+                .accountUpdate_rowContent { padding-left: 10px; }
+                    .changeLink { color: #0a47b4; cursor: pointer;  }
+            .submitRow { text-align: center; }
+            .userHome_listing { padding-left: 10px; font-size: 14px; }
+            #loader { z-index: 50; position: absolute; top: 79px; left:60px }
+
+/***************************************/
+/*View Listings Page*/
+/***************************************/  
+.viewListings_wrapper { font-family: "Arial",sans-serif; vertical-align: baseline; height: 100%; width: 100%; position: relative; background-color: white; }    
+    .viewListings_pageContainer { display: block; vertical-align: baseline;  margin-left: auto; margin-right: auto; height: auto; width: 1000px ; background-color: white; position: relative; }
+    .viewListings_header { padding: 20px; padding-bottom: 0px; display: inline-block; width: 100%; margin-bottom: 20px;  } 
+        #viewListings_header_currentCity { font-size: 30px;  }
+        #viewListings_header_returnLink { font-size: 35px; color: #0a47b4; cursor: pointer;  }
+    .viewListings_leftContent { width: 200px; float: left; height: 300px;  }
+        .viewListings_leftContentHeader { font-size: 25px; padding-top: 10px; padding-bottom: 0px; width: auto; text-decoration: underline; text-align: center;   }
+        .viewListings_leftContentFilter { font-size: 16px; padding-top: 10px; list-style: none;   }
+            #check1 { padding-bottom: 10px; }
+            #check2 { padding-bottom: 10px; }
+            #applyFiltersBtn { margin-left: 40px; }
+    .viewListings_rightContent { padding-left: 20px; width: 750px; float: left; min-height: 300px; border-left: 1px solid; }
+        .viewListings_listing_date { width: 100px; }
+        .viewListings_listing_headLine { width: 350px; }
+        .viewListings_listing_location { width: 150px; }
+        .viewListings_listing_price { width: 100px; }
+        .viewListings_listing { color: #0a47b4; cursor: pointer; }
+        .viewListings_thumbListing { padding: 5px; cursor: pointer; font-size: 15px;  }
+            .viewListings_thumbListing_thumb { float: left; }
+            .viewListings_thumbListing_thumbdesc { float: left; margin-left: 12px; vertical-align: middle;  }
+        .viewListings_galleryListing { display: inline-block; padding: 5px; cursor: pointer; text-align: center; vertical-align: middle; font-size: 15px; width: 300px; }
+/***************************************/
+/*Display Listing Page*/
+/***************************************/
+.displayListing_wrapper { font-family: "Arial",sans-serif; vertical-align: baseline; height: 100%; width: 100%; position: relative; background-color: white; } 
+   .displayListing_content { display: block; vertical-align: baseline;  margin-left: auto; margin-right: auto; height: auto; width: 800px ; background-color: white; position: relative; margin-top: 150px;  }
+       .displayListing_contentHeader { font-size: 20px; }
+            .displayListing_breadCrumb_homeLink { cursor: pointer; color: #0a47b4; float: left; margin-right: 12px;  }
+            .displayListing_breadCrumb_subCatLink {cursor: pointer; color: #0a47b4; float: left  }
+       .displayListing_content_MainImage { margin-top: 25px; margin-bottom: 20px;  }
+        .displayListing_content_MainImage img { vertical-align: middle; margin-top: 10px;  }
+       .displayListing_content_Thumbs { margin-bottom: 20px; padding: 10px;   }
+            .displayListing_content_ThumbPic_Container { display: inline-block; cursor: pointer; margin-right: 10px; }  
+                .displayListing_content_ThumbPic { border: 1px solid black; }       
+      .displayListing_content_discription { }
+      .displayListing_content_breadCrumb { font-size: 25px; color: #0a47b4; margin-bottom: 20px; }
+
+/***************************************/
+/*SEARCH RESULTS*/
+/***************************************/
+.displaySearchResults_wrapper { font-family: "Arial",sans-serif; vertical-align: baseline; height: 100%; width: 100%; position: relative; background-color: white; }    
+    .displaySearchResults_pageContainer { display: block; vertical-align: baseline;  margin-left: auto; margin-right: auto; height: auto; width: 1100px ; background-color: white; position: relative; }
+    .displaySearchResults_header { padding: 20px; padding-bottom: 0px; display: inline-block; width: 100%; margin-bottom: 20px;  } 
+        #displaySearchResults_header_currentCity { font-size: 30px;  }
+        #displaySearchResults_header_returnLink { font-size: 35px; color: #0a47b4; cursor: pointer;  }
+    .displaySearchResults_leftContent { width: 200px; float: left;  }
+        .displaySearchResults_leftContentHeader { font-size: 25px; padding-top: 10px; padding-bottom: 0px; width: auto; text-decoration: underline; text-align: center;   }
+        .displaySearchResults_leftContentFilter { font-size: 16px; padding-top: 10px; list-style: none;   }
+            #stateFilter { padding-bottom: 10px; }
+            #check2 { padding-bottom: 10px; }
+            #applyFiltersBtn { margin-left: 40px; }
+    .displaySearchResults_rightContent { padding-left: 20px; width: 850px; float: left; min-height: 300px; border-left: 1px solid; }
+        .displaySearchResults_listing_date { width: 100px; }
+        .displaySearchResults_listing_headLine { width: 350px; }
+        .displaySearchResults_listing_location { width: 150px; }
+        .displaySearchResults_listing_price { width: 100px; }
+        .displaySearchResults_listing { color: #0a47b4; cursor: pointer; }
+        .displaySearchResults_thumbListing { padding: 5px; cursor: pointer; font-size: 15px;  }
+            .displaySearchResults_thumbListing_thumb { float: left; }
+            .displaySearchResults_thumbListing_thumbdesc { float: left; margin-left: 12px; vertical-align: middle;  }
+        .displaySearchResults_galleryListing { display: inline-block; padding: 5px; cursor: pointer; text-align: center; vertical-align: middle; font-size: 15px; width: 300px; }

@@ -1,0 +1,76 @@
+﻿@model CoreysList.Web.Models.LocatorViewModel
+@using CoreysList.Web
+@using CoreysList.Web.Models
+@using CoreysList.Entity
+@Styles.Render("~/Content/Site.css")
+
+@{
+    Layout = null;
+}
+
+<div class="locator_wrapper">
+    <div class="locator_pageContainer">
+        <div class="locator_logo"> Corey's List </div>
+        <div class="locator_instuctions">Please select your city</div>
+        <div class="locator_stateColumn1">
+                @foreach( State state in Model.States1)
+                {
+                    <div class="locator_state_header"> @state.StateName </div>
+                    <ul class="locator_stateColumn1_cityList">
+                        @foreach (City city in state.Cities)
+                        {
+                            <li class="locator_stateColumn_listItem" cityId="@city.CityID"> @city.CityName </li>
+                        }
+                    </ul>
+                    <div class="locator_lowerBorder"></div>
+                }
+        </div>
+        <div class="locator_stateColumn2">
+            @foreach (State state in Model.States2)
+            {
+                <div class="locator_state_header"> @state.StateName </div>
+                <ul class="locator_stateColumn2_cityList">
+                    @foreach (City city in state.Cities)
+                    {
+                        <li class="locator_stateColumn_listItem" cityId="@city.CityID"> @city.CityName </li>
+                    }
+                </ul>
+                <div class="locator_lowerBorder"></div>
+            }
+        </div>
+        <div class="locator_stateColumn3">
+            @foreach (State state in Model.States3)
+            {
+                <div class="locator_state_header"> @state.StateName </div>
+                <ul class="locator_stateColumn3_cityList">
+                    @foreach (City city in state.Cities)
+                    {
+                        <li class="locator_stateColumn_listItem" cityid="@city.CityID"> @city.CityName </li>
+                    }
+                </ul>
+                <div class="locator_lowerBorder"></div>
+            }
+        </div>
+        <div class="locator_stateColumn4">
+            @foreach (State state in Model.States4)
+            {
+                <div class="locator_state_header"> @state.StateName </div>
+                <ul class="locator_stateColumn4_cityList">
+                    @foreach (City city in state.Cities)
+                    {
+                        <li class="locator_stateColumn_listItem" cityId="@city.CityID"> @city.CityName </li>
+                    }
+                </ul>
+                <div class="locator_lowerBorder"></div>
+            }
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="footer">Created by: Corey Johansen</div>
+</div>
+
+
+<script type="text/javascript" src="~/Scripts/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery-ui-11.4.min.js"></script>
+<script type="text/javascript" src="~/Scripts/Views/Global.js"></script>
+<script type="text/javascript" src="~/Scripts/Views/Home.Locator.js"></script>

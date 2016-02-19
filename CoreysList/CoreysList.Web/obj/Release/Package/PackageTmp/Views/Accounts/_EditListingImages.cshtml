@@ -1,0 +1,44 @@
+﻿@model CoreysList.Web.Models.EditListingImagesViewModel
+
+
+@{
+    Layout = null;
+}
+
+<div class="editListingImages_pageContainer">
+    @Html.Hidden("listingId", Model.ListingId)
+    <div class="editListingImages_instructions">You can upload up to 6 images. Upload your best image first.</div>
+    <div class="editListingImages_uploadBar">
+        <form id="uploader">
+            <input id="fileInput" type="file" multiple>
+            <input type="submit" value="Upload file" />
+        </form>
+    </div>
+    <div class="editListingImages_galleryContainer">
+        @if (Model.ImageIds != null)
+        {
+            <table class="uploadedImagesTable">
+                @for(int i = 0; i < Model.ImageIds.Count(); i++)
+                {                   
+                    if (i % 4 == 0)
+                    {
+                      @:<tr>
+                    }
+                    <td class="imageTemplate">
+                        <img src="/Images/GetThumb/@Model.ImageIds[i]" />
+                        <div class="uploadImages_DeleteBtn" imageId="@Model.ImageIds[i]">Delete</div>
+                    </td>
+
+                    if ((i + 1) % 4 == 0)
+                    {
+                       @:</tr>
+                    }
+                }
+            </table>
+        }
+        
+    </div>
+
+</div>
+
+<script type="text/javascript" src="~/Scripts/Views/Account.Partial.UploadImage.js"></script>

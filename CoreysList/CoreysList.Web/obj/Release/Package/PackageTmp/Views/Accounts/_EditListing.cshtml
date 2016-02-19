@@ -1,0 +1,67 @@
+﻿@model CoreysList.Web.Models.EditListingViewModel
+@using System.Web.Mvc
+
+@{
+    Layout = null;
+}
+
+@Styles.Render("~/Content/Site.css")
+
+<div class="editListing_container">
+     @* using (Html.BeginForm("EditListing", "Accounts", FormMethod.Post, new { @class = "accounts_editListingForm", @id = "editListing" }))*@
+    @using (Ajax.BeginForm("EditListing", "Accounts", null, 
+            new AjaxOptions
+        {
+            HttpMethod = "POST",
+            OnSuccess = "SuccessMessage",
+            OnFailure = "FailMessage",
+            UpdateTargetId = "userHome_listing_editModal"
+        }, 
+        new { id = "editListingForm" })) // set new Id name for  Form
+        {
+            @Html.HiddenFor(m => m.Listing.ListingID)
+                 
+            <table class="editListing_table">
+                <tr class="editListing_tableRow">
+                    <td class="editListing_tableRow_label">Headline</td>
+                    <td class="editListing_tableRow_content">@Html.TextBoxFor(m => m.Listing.Headline, new { style = "width:275px;" })</td>
+                </tr>
+                <tr class="editListing_tableRow">
+                    <td class="editListing_tableRow_label">Category</td>
+                    <td class="editListing_tableRow_content">@Html.DropDownList("Categories", new SelectList(Model.Categories, "Value", "Text"), new { @id = "categories" })</td>
+                </tr>
+                <tr class="editListing_tableRow">
+                    <td class="editListing_tableRow_label">SubCategory</td>
+                    <td class="editListing_tableRow_content">@Html.DropDownListFor(m => m.Listing.SubCategoryID, Model.Subcategories, new { @id = "subcategories" })</td>
+                </tr>
+                <tr class="editListing_tableRow">
+                    <td class="editListing_tableRow_label">State</td>
+                    <td class="editListing_tableRow_content">@Html.DropDownList("States", new SelectList(Model.States, "Value", "Text"), new { @id = "states" })</td>
+                </tr>
+                <tr class="editListing_tableRow">
+                    <td class="editListing_tableRow_label">City</td>
+                    <td class="editListing_tableRow_content">@Html.DropDownListFor(m => m.Listing.CityID, Model.Cities, new { @id = "cities" })</td>
+                </tr>
+                <tr class="editListing_tableRow">
+                    <td class="editListing_tableRow_label">Location</td>
+                    <td class="editListing_tableRow_content">@Html.TextBoxFor(m => m.Listing.Location)</td>
+                </tr>
+                <tr class="editListing_tableRow">
+                    <td class="editListing_tableRow_label">Price</td>
+                    <td class="editListing_tableRow_content">@Html.TextBoxFor(m => m.Listing.Price)</td>
+                </tr>
+                <tr class="editListing_tableRow">
+                    <td class="editListing_tableRow_label" style="vertical-align:top">Description</td>
+                    <td class="editListing_tableRow_content_discription">@Html.TextAreaFor(m => m.Listing.Description, new { style = "width:400px; height: 200px" })</td>
+                </tr>
+            </table>
+            }
+</div>
+
+<script type="text/javascript" src="~/Scripts/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery-ui-11.4.min.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery.validate.min.js"></script>
+<script type="text/javascript" src="~/Scripts/additional-methods.min.js"></script>
+<script type="text/javascript" src="~/Scripts/Views/Global.js"></script>
+<script type="text/javascript" src="~/Scripts/Views/Account.Partial.EditListing.js"></script>

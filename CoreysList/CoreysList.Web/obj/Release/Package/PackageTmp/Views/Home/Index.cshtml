@@ -1,0 +1,208 @@
+﻿@using CoreysList.Web
+@using CoreysList.Web.Models
+@using CoreysList.Entity
+@model CoreysList.Web.Models.HomeIndexViewModel
+@Styles.Render("~/Content/Site.css")
+@Styles.Render("~/Content/themes/base/jquery-ui.css")
+@{
+    ViewBag.Title = "Home";
+    Layout = null;
+}
+
+@Html.HiddenFor(m => m.CityId)
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+<div class="home_wrapper">
+    <div class="home_pageContainer">
+        <div class="home_leftBar">
+            <div class="home_leftBar_logo">Corey's List</div>
+            <ul class="home_leftBar_menu">
+                <li class="home_leftBar_menu_item postToClassifieds">Post to Classifieds</li>
+                <li class="home_leftBar_menu_item myAccount">My Account  <img class="home_leftBar_myAccounts_help" title="Click here to log in and manage postings"src="~/Content/Images/help.png" /></li>
+                <li class="home_leftBar_menu_item searchBar">
+                    @using (Html.BeginForm("SearchBarPost", "Home", FormMethod.Post, new { @class = "home_leftBar_searchBar", @id = "login" }))
+                    { 
+                        @Html.TextBoxFor(m => m.SearchTerm, 
+                             new { placeholder = "Search..."})
+                        <button type="submit">Search</button>
+                    }  
+                </li>
+                <li class="home_leftBar_menu_item faq">Faq</li>
+                <li class="home_leftBar_menu_item avoidscams">Avoid Scams & Fraud</li>
+                <li class="home_leftBar_menu_item personalSafetyTips">Personal Safety Tips</li>
+                <li class="home_leftBar_menu_item termsOfUse">Terms of Use</li>
+                <li class="home_leftBar_menu_item privacyPolicy">Privacy Policy</li>
+            </ul>  
+        </div>
+        <div class="home_center">
+            <div class="home_topBanner_container"> 
+                <div class="home_topBanner_content">Coreys list - @Model.CityName</div> 
+            </div>
+
+            <div class="home_center_leftContent">
+                @foreach(Category category in Model.Categories1)
+                {
+                    <div class="home_center_category_header"> @category.CategoryName </div>
+                    <ul class="home_center_subcategory_list">
+                    @foreach(SubCategory subcategory in category.SubCategories)
+                    {
+                        <li class="home_center_subcategory_list_item" subcategoryId="@subcategory.SubCategoryID">@subcategory.SubCategoryName</li>
+                    }
+                    </ul>
+                }
+            </div>
+                    
+            <div class="home_center_centerContent">
+                @foreach(Category category in Model.Categories2)
+                {
+                    <div class="home_center_category_header"> @category.CategoryName </div>
+                    <ul class="home_center_subcategory_list">
+                    @foreach(SubCategory subcategory in category.SubCategories)
+                    {
+                        <li class="home_center_subcategory_list_item" subcategoryId="@subcategory.SubCategoryID">@subcategory.SubCategoryName</li>
+                    }
+                    </ul>
+                }
+            </div>
+            <div class="home_center_rightContent">
+                @foreach(Category category in Model.Categories3)
+                {
+                    <div class="home_center_category_header"> @category.CategoryName </div>
+                    <ul class="home_center_subcategory_list">
+                    @foreach(SubCategory subcategory in category.SubCategories)
+                    {
+                        <li class="home_center_subcategory_list_item" subcategoryId="@subcategory.SubCategoryID">@subcategory.SubCategoryName</li>
+                    }
+                    </ul>
+                }
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="home_rightBar">
+            <div class="home_rightBar_usCitiesHeader">
+                us cities
+            </div>
+            <ul class="home_rightBar_usCitiesList">
+                @foreach(City city in Model.TopCities)
+                {
+                    <li class="home_rightBar_usCitiesItem" cityId="@city.CityID">@city.CityName</li>
+                }
+            </ul>
+
+            <div class="home_rightBar_usStatesHeader">
+                us states
+            </div>
+            <ul class="home_rightBar_usStatesList">
+                @foreach (State state in Model.States)
+                {
+                    <li class="home_rightBar_usStatesItem" stateId="@state.StateID">@state.StateName</li>
+                }
+            </ul>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div class="footer">Created by: Corey Johansen</div>
+</div>
+
+
+<div class="home_modal_faq" title="FAQs">
+    <ul class="home_faq_modal_list">
+        <li class="home_faq_modal_list_item">How do I post a free posting?<br />
+        <span class="faq_answers">You can post a free ad without having an account or logging in to our site. To learn how, please read our help page on how to create a free post. However, having a craigslist account will allow you to post, edit, delete, and repost more easily.</span></li>
+        <li class="home_faq_modal_list_item"> How can I edit my posting?<br />
+        <span class="faq_answers">Edits for postings are now self-service.</span></li>
+        <li class="home_faq_modal_list_item">If you posted while logged in to your account, you can edit from your account homepage. <br />
+        Otherwise, use the link provided in the same self-posting email you used originally to self-post. If you can't find this, try having it re-sent.</li>
+        <li class="home_faq_modal_list_item">How soon does my posting expire? <br />
+        <span class="faq_answers">View the full list of posting lifespans.</span></li>
+        <li class="home_faq_modal_list_item">How can I delete my posting? <br />
+        <span class="faq_answers"> If you posted using an account, you can delete your posting from your account homepage.</span></li>
+        <li class="home_faq_modal_list_item">How do I repost my posting? <br />
+        <span class="faq_answers">For more information on reposting free ads, see this page.</span></li>
+        <li class="home_faq_modal_list_item">How often can I post? <br />
+        <span class="faq_answers">You may post to one category and in one city, no more than once every 48 hours.</span></li>
+    </ul>
+</div>
+
+<div class="home_modal_avoidscams" title="Avoid Scams and Fraud">
+    <ul class="home_avoidscams_modal_list">
+        <li class="home_avoidscams_modal_list_item">Deal locally, face-to-face —follow this one rule and avoid 99% of scam attempts.</li>
+        <li class="home_avoidscams_modal_list_item">Do not extend payment to anyone you have not met in person.</li>
+        <li class="home_avoidscams_modal_list_item">Beware offers involving shipping</li>
+        <li class="home_avoidscams_modal_list_item">Never wire funds</li>
+        <li class="home_avoidscams_modal_list_item">Don't accept cashier/certified checks or money orders</li>
+        <li class="home_avoidscams_modal_list_item">Transactions are between users only</li>
+        <li class="home_avoidscams_modal_list_item">Never give out financial info</li>
+        <li class="home_avoidscams_modal_list_item">Do not rent or purchase sight-unseen</li>
+        <li class="home_avoidscams_modal_list_item">Refuse background/credit checks</li>
+    </ul>
+</div>
+
+<div class="home_modal_personalSafetyTips" title="Personal Safety Tips">
+     <ul class="home_personalSafetyTips_modal_list">
+        <li class="home_personalSafetyTips_modal_list_item">Insist on a public meeting place like a cafe.</li>
+        <li class="home_personalSafetyTips_modal_list_item">Do not meet in a secluded place, or invite strangers into your home.</li>
+        <li class="home_personalSafetyTips_modal_list_item">Be especially careful buying/selling high value items.</li>
+        <li class="home_personalSafetyTips_modal_list_item">Consider making high-value exchanges at your local police station.</li>
+        <li class="home_personalSafetyTips_modal_list_item">Tell a friend or family member where you're going.</li>
+        <li class="home_personalSafetyTips_modal_list_item">Take your cell phone along if you have one.</li>
+        <li class="home_personalSafetyTips_modal_list_item">Consider having a friend accompany you.</li>
+        <li class="home_personalSafetyTips_modal_list_item">Trust your instincts.</li>
+    </ul>
+</div>
+
+<div class="home_modal_termsOfUse" title="Terms of Use">
+    <ul class="home_termsOfUse_modal_list">
+        <li class="home_termsOfUse_modal_list_item"><h4>WELCOME TO COREYS LIST</h4>We hope you find it useful. By accessing our servers, websites, or content therefrom (together, "CL"), you agree to these Terms of Use ("TOU"), last updated December 05, 2013.</li>
+        <li class="home_termsOfUse_modal_list_item"><h4>LICENSE</h4>If you are 18 or older, we grant you a limited, revocable, nonexclusive, nonassignable, nonsublicensable license to access CL in compliance with the TOU; unlicensed access is unauthorized. You agree not to license, distribute, make derivative works, display, sell, or "frame" content from CL, excluding content you create and sharing with friends/family. You grant us a perpetual, irrevocable, unlimited, worldwide, fully paid/sublicensable license to use, copy, perform, display, distribute, and make derivative works from content you post.</li>
+        <li class="home_termsOfUse_modal_list_item"><h4>USE</h4>You agree not to use or provide software (except for general purpose web browsers and email clients, or software expressly licensed by us) or services that interact or interoperate with CL, e.g. for downloading, uploading, posting, flagging, emailing, search, or mobile use. Robots, spiders, scripts, scrapers, crawlers, etc. are prohibited, as are misleading, unsolicited, unlawful, and/or spam postings/email. You agree not to collect users' personal and/or contact information ("PI").</li>
+        <li class="home_termsOfUse_modal_list_item"><h4>MODERATION</h4>ou agree we may moderate CL access and use in our sole discretion, e.g. by blocking (e.g. IP addresses), filtering, deletion, delay, omission, verification, and/or access/account/license termination. You agree (1) not to bypass said moderation, (2) we are not liable for moderating, not moderating, or representations as to moderating, and (3) nothing we say or do waives our right to moderate, or not. All site rules, e.g. cl.com/about/prohibited, are incorporated herein.</li>
+        <li class="home_termsOfUse_modal_list_item"><h4>SALES</h4>You authorize us to charge your account for CL fees. Unless noted, fees are in US dollars; tax is additional. To the extent permitted by law, fees are nonrefundable, even for posts we remove. We may refuse purchases, which may place a hold on your account.</li>
+        <li class="home_termsOfUse_modal_list_item"><h4>MISC</h4>Users complying with prior written licenses may access CL thereby until authorization is terminated. Otherwise, this is the exclusive and entire agreement between us. If a TOU term is unenforceable, other terms are unaffected. If TOU translations conflict with the English version, English controls. See Privacy Policy for how we collect, use and share data. If you feel content infringes your rights see cl.com/about/dmca.</li>
+    </ul>
+</div>
+
+<div class="home_modal_privacyPolicy" title="Privacy Policy">
+    <ul class="home_privacyPolicy_modal_list">
+        <li class="home_privacyPolicy_modal_list_item"> <h4>Protecting your privacy</h4>
+            <ul class="home_privacyPolicy_modal_sub_list">
+                <li class="home_privacyPolicy_modal_sub_list_item">We take precautions to prevent unauthorized access to or misuse of data about you.</li>
+                <li class="home_privacyPolicy_modal_sub_list_item">We do not run ads, other than classified ads posted by our users.</li>
+                <li class="home_privacyPolicy_modal_sub_list_item">We do not share your data with third parties for marketing purposes.</li>
+                <li class="home_privacyPolicy_modal_sub_list_item">We do not engage in cross-marketing or link-referral programs with other sites.</li>
+                <li class="home_privacyPolicy_modal_sub_list_item">We do not send you unsolicited communications for marketing purposes.</li>
+                <li class="home_privacyPolicy_modal_sub_list_item">We do provide email proxy & relay to reduce unwanted mail.</li>
+            </ul>
+        </li>
+        <li class="home_privacyPolicy_modal_list_item"> <h4>Data we store</h4>
+            <ul class="home_privacyPolicy_modal_sub_list"> 
+                <li class="home_privacyPolicy_modal_sub_list_item">We retain data as long as needed for our business purposes and/or as required by law.</li>
+                <li class="home_privacyPolicy_modal_sub_list_item">We make good faith efforts to store data securely, but make no guarantees.</li>
+                <li class="home_privacyPolicy_modal_sub_list_item">You may access and update certain data about you by logging into your account.</li>
+            </ul>
+        </li>
+        <li class="home_privacyPolicy_modal_list_item"> <h4>Circumstances in which we may disclose user data:</h4>
+            <ul class="home_privacyPolicy_modal_sub_list">  
+                <li class="home_privacyPolicy_modal_sub_list_item">to vendors and service providers (e.g. payment processors) working on our behalf.</li>
+                <li class="home_privacyPolicy_modal_sub_list_item">to respond to subpoenas, court orders, or other legal process.</li>
+                <li class="home_privacyPolicy_modal_sub_list_item">to protect our rights, property, or safety, or that of our users or the general public.</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+
+<script type="text/javascript" src="~/Scripts/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery-ui-11.4.min.js"></script>
+<script type="text/javascript" src="~/Scripts/Views/Global.js"></script>
+<script type="text/javascript" src="~/Scripts/Views/Home.Index.js"></script>
+
+</body>
+</html>
