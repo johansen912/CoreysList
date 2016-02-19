@@ -30,7 +30,7 @@ namespace CoreysList.Entity
         public DbSet<State> States { get; set; }
         public DbSet<SubCategory> SubCategories { get; set; }
         public DbSet<City> Cities { get; set; }
-        public DbSet<User> Users { get; set; }
         public DbSet<Image> Images { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }

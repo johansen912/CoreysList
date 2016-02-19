@@ -14,10 +14,10 @@
         <EntityTypeShape EntityType="CoreysListModel.City" Width="1.5" PointX="3" PointY="1.5" />
         <AssociationConnector Association="CoreysListModel.FK_City_State" />
         <AssociationConnector Association="CoreysListModel.FK_Listing_City" />
-        <EntityTypeShape EntityType="CoreysListModel.User" Width="1.5" PointX="7.375" PointY="1" />
-        <AssociationConnector Association="CoreysListModel.FK_Listing_User" />
         <EntityTypeShape EntityType="CoreysListModel.Image" Width="1.5" PointX="7.5" PointY="4.875" />
         <AssociationConnector Association="CoreysListModel.FK_Image_Listing" />
+        <EntityTypeShape EntityType="CoreysListModel.User" Width="1.5" PointX="10.375" PointY="1" />
+        <AssociationConnector Association="CoreysListModel.FK_Listing_User" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

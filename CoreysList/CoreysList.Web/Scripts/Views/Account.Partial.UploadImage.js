@@ -14,7 +14,6 @@ $(document).ready(function ($) {
         xhr.send(formdata);
         xhr.onreadystatechange = function () {
             if (xhr.readyState == 4 && xhr.status == 200) {
-                //alert(xhr.responseText);
                 $("#userHome_listing_editImgsModal").html(xhr.responseText);
             }
         }

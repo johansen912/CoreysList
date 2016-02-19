@@ -27,10 +27,12 @@
                 <li class="home_leftBar_menu_item postToClassifieds">Post to Classifieds</li>
                 <li class="home_leftBar_menu_item myAccount">My Account  <img class="home_leftBar_myAccounts_help" title="Click here to log in and manage postings"src="~/Content/Images/help.png" /></li>
                 <li class="home_leftBar_menu_item searchBar">
-                    <form class="home_leftBar_searchBar">
-                        <input type="text" placeholder="Search..." required>
-                        <input type="button" value="Search">
-                    </form>
+                    @using (Html.BeginForm("SearchBarPost", "Home", FormMethod.Post, new { @class = "home_leftBar_searchBar", @id = "login" }))
+                    { 
+                        @Html.TextBoxFor(m => m.SearchTerm, 
+                             new { placeholder = "Search..."})
+                        <button type="submit">Search</button>
+                    }  
                 </li>
                 <li class="home_leftBar_menu_item faq">Faq</li>
                 <li class="home_leftBar_menu_item avoidscams">Avoid Scams & Fraud</li>

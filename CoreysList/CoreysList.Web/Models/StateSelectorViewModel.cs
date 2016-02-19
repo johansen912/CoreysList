@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using CoreysList.Entity;
 
 namespace CoreysList.Web.Models
@@ -10,19 +9,22 @@ namespace CoreysList.Web.Models
     {
         #region Constructors
 
-        //constructor for the model
-        public StateSelectorViewModel( int stateId)
+        // constructor for the model
+        public StateSelectorViewModel(int stateId)
         {
-            CoreysListEntities Db = new CoreysListEntities();
-            this.Cities = Db.Cities.Where(c => c.StateID == stateId).ToList();
-            this.StateName = Db.States.FirstOrDefault(s => s.StateID == stateId).StateName;
+            // Get the selected state and the cites that belong to it
+            CoreysListEntities db = new CoreysListEntities();
+            this.Cities = db.Cities.Where(c => c.StateID == stateId).ToList();
+            this.StateName = db.States.FirstOrDefault(s => s.StateID == stateId).StateName;
         }
 
         #endregion
 
         #region Properties
+
         public List<City> Cities { get; set; }
-        public String StateName { get; set; }
+
+        public string StateName { get; set; }
 
         #endregion
     }

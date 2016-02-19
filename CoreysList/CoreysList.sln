@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreysList.Web", "CoreysLis
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreysList.Entity", "CoreysList.Entity\CoreysList.Entity.csproj", "{263FCD06-94B0-4B8B-8F13-00D458B202E9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreysList.Admin", "CoreysList.Admin\CoreysList.Admin.csproj", "{509F6320-F1A1-43F7-8164-D7E42A9EADEC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PopulatePostalCodes", "PopulatePostalCodes\PopulatePostalCodes.csproj", "{34FF988F-A56E-43E0-83AF-98C516D25EE1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{263FCD06-94B0-4B8B-8F13-00D458B202E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{263FCD06-94B0-4B8B-8F13-00D458B202E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{263FCD06-94B0-4B8B-8F13-00D458B202E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{509F6320-F1A1-43F7-8164-D7E42A9EADEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{509F6320-F1A1-43F7-8164-D7E42A9EADEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{509F6320-F1A1-43F7-8164-D7E42A9EADEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{509F6320-F1A1-43F7-8164-D7E42A9EADEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34FF988F-A56E-43E0-83AF-98C516D25EE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34FF988F-A56E-43E0-83AF-98C516D25EE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34FF988F-A56E-43E0-83AF-98C516D25EE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34FF988F-A56E-43E0-83AF-98C516D25EE1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

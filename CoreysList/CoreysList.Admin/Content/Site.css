@@ -1,0 +1,74 @@
+﻿/*-----------GLOBAL-----------*/
+.clear { clear: both; }
+body { font-family: Arial;}
+.pnlEdit { position: absolute; top: 25%; left: 35%; border: 1px solid black;  background-color: whitesmoke; z-index: 30; width: 400px; border: 1px solid #808080; box-shadow: 5px 5px 5px #888888; color: black; padding-bottom: 20px;}
+    .EditHeader { font-size: 19px; color: white; background: #808080; width: 100%; height: 50px; padding-top: 10px; padding-left: 20px; }
+    .modal_editTable { margin-top: 20px; margin-left: 20px;  }
+        .labelTd { width: 100px; padding-bottom: 10px; }
+        .contentTd { }
+            .contentTextBox{ padding: 3px;}
+        .buttonTd { text-align: center; }
+            .editTableBtn { margin-left: 10px; margin-top: 10px }
+.pnlBackdrop { position: absolute; width: 100% ; height: 100%; background-color: rgba(129, 127, 127, 0.51); top: 0px; left: 0px; z-index: 20; }
+    
+
+/*-----------Default-----------*/
+.defaultBody { background-color: #47a0e0; margin: 0px; height: 100%;  }
+    .defaultWrapper { height: 100px; width: 100%; }
+        .defaultHeader { background-color: #0094ff; height: 100px; display: table; width: 100%; padding-left: 40px;   }
+           .defaultHeader_Text { color: white; font-size: 25px; display: table-cell; vertical-align: middle;  }
+        .defaultFormContainer { width: 500px; background-color: whitesmoke; min-height: 200px; border: 1px solid #0094ff; border-radius: 8px; margin-left: auto; margin-right: auto; margin-top: 70px;     }
+            .defaultFormContainer_header { font-size: 20px; color: whitesmoke; background-color: #6d6262; margin-top: 0px; height: 40px; border-top-right-radius: 8px; border-top-left-radius: 8px; padding-left: 40px; padding-top: 10px;    }
+            .defaultFormTable { margin-left: 40px; margin-top: 20px;  }
+                .defaultFormTable tr > td { padding-top: 10px;  }
+                .defaultFormTable_labels { width: 70px; font-size: 16px; }  
+                .defaultFormTable_textboxes { width: 150px;   } 
+                .defaultFormTable_btnCell { text-align: center; padding-top: 200px;  }
+                .defaultFormTable_SubmitBtn { }
+                .defaultFormTable_ClearBtn { padding-left: 10px; margin-left: 10px;}
+                .defaultFormTable_ErrorMsg { color: #930707; font-size: 15px; margin-top: 10px; }
+
+/*-----------Dashboard-----------*/
+.dashboard_content { border: 1px solid #0094ff; border-radius: 8px; background-color: white; width: 1000px; margin-left: auto; margin-right: auto; margin-top: 10px; padding: 30px; }
+    .dashboardHeader { display: block; font-size: 25px; margin-bottom: 60px;}
+    .dashboard_contentLayoutTable { width: 700px; margin-left: auto; margin-right: auto; }
+        .dashboard_contentLayoutTable > td { width: 350px;  }     
+        .dashboardSubHeader {  font-size: 21px; border-bottom: 2px solid #e4d7d7; padding-bottom: 10px; text-align: center; margin-bottom: 10px; width: 120px;  margin-left: 120px;  }
+        .dashboard_content_userContent_SubTable { width: 350px;  }
+            .dashboard_contentData { padding-left: 140px; margin-top: 20px;  }
+        .lowerHeader { font-size: 20px; text-align: center; padding-top: 60px; border-bottom: 2px solid #e4d7d7; padding-bottom: 10px;  }
+        .dashboard_chartLegendTable {  }
+            .legendHeader { text-align: center; font-size: 18px; padding-bottom: 20px; }
+            .legendLabelTd { width: 170px; }
+            .dashboardLegendColors { width: 30px; }
+
+/*-----------Users-----------*/
+.userPageBanner { display: block; margin-top: 20px; margin-bottom: 20px; margin-left: 100px; }
+    .userHeader { font-size: 20px; width: 300px; float: left;   }
+    .findUserFilter { float: right; margin-top: 0px; padding-top: 0px; margin-right: 20px; }
+        .filterUserLabel { margin-top: 0px; padding-top: 0px; font-size: 17px; margin-right: 7px;  }
+        .findUserText { margin-top: 0px; padding-top: 0px; font-size: 17px; margin-right: 7px; }
+        .findUserBtn {  margin-top: 0px; padding-top: 0px; font-size: 17px; margin-right: 7px; }
+        .userActiveDropDown { margin-right: 30px; font-size: 17px; }
+
+/*-----------Listings-----------*/
+.listingPageBanner { display: block; margin-top: 20px; margin-bottom: 20px; margin-left: 100px; }
+    .listingHeader { font-size: 20px; width: 300px; float: left;   }
+    .findListingFilter { float: right; margin-top: 0px; padding-top: 0px; margin-right: 20px; }
+        .filterListingLabel { margin-top: 0px; padding-top: 0px; font-size: 17px; margin-right: 7px;  }
+        .findListingText { margin-top: 0px; padding-top: 0px; font-size: 17px; margin-right: 7px; }
+        .findListingBtn {  margin-top: 0px; padding-top: 0px; font-size: 17px; margin-right: 7px; }
+        .listingActiveDropDown { margin-right: 30px; font-size: 17px; }
+.custEditTable { width: 540px; }
+.longBox { width: 375px; }
+
+/*-----------Cities-----------*/
+.cityPageBanner { display: block; margin-top: 20px; margin-bottom: 20px; margin-left: 100px; padding-right: 100px;  }
+    .cityHeader { font-size: 20px; width: 300px; float: left;   }
+    .findCityFilter {  margin-top: 0px; padding-top: 0px; margin-right: 20px; }
+        .filterCityLabel {  margin-top: 0px; padding-top: 0px; font-size: 17px; margin-right: 10px;  }
+        .findCityText {  margin-top: 0px; padding-top: 0px; font-size: 17px; margin-right: 10px; }
+        .addCityIcon { float: right;  margin-top: 0px; padding-top: 0px; cursor: pointer;  }
+        .findCityBtn {   margin-top: 0px; padding-top: 0px; font-size: 17px; margin-right: 25px; }
+        .cityMajorDropDown { margin-right: 10px; font-size: 17px; }   
+

@@ -20,14 +20,14 @@
         <div class="userHome_pageContainer">
             <div class="userHome_pageHeader_profileLink_Container">
                 <div class="userHome_pageHeader"><a href="@Url.Action("Index", "Home")">Corey's List</a> - @Model.UserName</div>
-                <div class="userHome_newPostingsLabel"><a id="newPosting" listingId="-1">New Posting</a>&nbsp; &nbsp; &nbsp;|</div>
+                <div class="userHome_newPostingsLabel"><a id="newPosting" listingId="-1">New Listing</a>&nbsp; &nbsp; &nbsp;|</div>
                 <div class="userHome_profileLink"><a href="@Url.Action("AccountUpdate", "Accounts")">User Profile</a>&nbsp; &nbsp; &nbsp;|</div>
                 <div class="userHome_logOut"><a href="@Url.Action("LogOut", "Accounts")">Log Out</a></div>
             </div>
 
             @Html.HiddenFor(model => model.TabId)
 
-            <div class="userHome_postingsHeader">Postings</div>
+            <div class="userHome_postingsHeader">Listings</div>
             <div id="userHome_filter_tabs">
                  <ul>
                     <li><a href="#userHome_allListings_Content" class="listingsTabs" tabId="0">All Listings</a></li>
@@ -37,46 +37,70 @@
                 <div class="userHome_listing_refreshBtn">Refresh</div>
                 <div class="clear"></div>
                 <div id="userHome_allListings_Content" class="userHome_tab_content">
-                    <table class="listingsTable">
-                        @foreach(Listing listing in Model.AllUserListings)
-                        {
-                            <tr class="userHome_listing">
-                                <td class="userHome_listing_date">@listing.CreatedDate.ToShortDateString()</td> 
-                                <td class="userHome_listing_headLine">@listing.Headline @(listing.Location.Length > 0 ? " - " + listing.Location : "")</td> 
-                                <td class="userHome_listing_td_edit"><span class="userHome_listing_edit link" listingId ="@listing.ListingID">edit</span>  &nbsp; |</td>   
-                                <td class="userHome_listing_td_editImgs"><span class="userHome_listing_editImgs link" listingId ="@listing.ListingID">images</span>  &nbsp; |</td>
-                                <td class="userHome_listing_td_activate"><span class="userHome_listing_activate link" listingId ="@listing.ListingID"> @(listing.IsActive ? "deactivate" : "activate") </span></td>   
-                            </tr>
-                        }
-                    </table>
+                    @if (Model.AllUserListings.Count == 0)
+                    {
+                       <div class="userHome_noListingMsg"> No listings available</div>
+                    }
+                    else
+                    {
+                        <table class="listingsTable">
+                            @foreach (Listing listing in Model.AllUserListings)
+                            {
+                                <tr class="userHome_listing">
+                                    <td class="userHome_listing_date">@listing.CreatedDate.ToShortDateString()</td>
+                                    <td class="userHome_listing_headLine">@listing.Headline @(listing.Location.Length > 0 ? " - " + listing.Location : "")</td>
+                                    <td class="userHome_listing_td_edit"><span class="userHome_listing_edit link" listingid="@listing.ListingID">edit</span>  &nbsp; |</td>
+                                    <td class="userHome_listing_td_editImgs"><span class="userHome_listing_editImgs link" listingid="@listing.ListingID">images</span>  &nbsp; |</td>
+                                    <td class="userHome_listing_td_activate"><span class="userHome_listing_activate link" listingid="@listing.ListingID"> @(listing.IsActive ? "deactivate" : "activate") </span></td>
+                                </tr>
+                            }
+                        </table>
+                    }
+                   
                 </div>
                 <div id="userHome_activeListings_Content" class="userHome_tab_content">
-                    <table class="listingsTable">
-                        @foreach (Listing listing in Model.ActiveUserListings)
-                        {
-                            <tr class="userHome_listing">
-                                <td class="userHome_listing_date">@listing.CreatedDate.ToShortDateString()</td>
-                                <td class="userHome_listing_headLine">@listing.Headline @(listing.Location.Length > 0 ? " - " + listing.Location : "")</td>
-                                <td class="userHome_listing_td_edit"><span class="userHome_listing_edit link" listingId ="@listing.ListingID">edit</span>  &nbsp; |</td>
-                                <td class="userHome_listing_td_editImgs"><span class="userHome_listing_editImgs link" listingId ="@listing.ListingID">images</span>  &nbsp; |</td>
-                                <td class="userHome_listing_td_activate"><span class="userHome_listing_activate link" listingId ="@listing.ListingID">deactivate </span> </td>
-                            </tr>
-                        }
-                    </table>
+                    @if (Model.ActiveUserListings.Count == 0)
+                    {
+                       <div class="userHome_noListingMsg"> No listings available</div>
+                    }
+                    else
+                    {
+                        <table class="listingsTable">
+                            @foreach (Listing listing in Model.ActiveUserListings)
+                            {
+                                <tr class="userHome_listing">
+                                    <td class="userHome_listing_date">@listing.CreatedDate.ToShortDateString()</td>
+                                    <td class="userHome_listing_headLine">@listing.Headline @(listing.Location.Length > 0 ? " - " + listing.Location : "")</td>
+                                    <td class="userHome_listing_td_edit"><span class="userHome_listing_edit link" listingid="@listing.ListingID">edit</span>  &nbsp; |</td>
+                                    <td class="userHome_listing_td_editImgs"><span class="userHome_listing_editImgs link" listingid="@listing.ListingID">images</span>  &nbsp; |</td>
+                                    <td class="userHome_listing_td_activate"><span class="userHome_listing_activate link" listingid="@listing.ListingID">deactivate </span> </td>
+                                </tr>
+                            }
+                        </table>
+                    }
+                    
                 </div>
                 <div id="userHome_inactiveListings_Content" class="userHome_tab_content">
-                    <table class="listingsTable">
-                        @foreach (Listing listing in Model.InactiveUserListings)
-                        {
-                            <tr class="userHome_listing">
-                                <td class="userHome_listing_date">@listing.CreatedDate.ToShortDateString()</td>
-                                <td class="userHome_listing_headLine">@listing.Headline @(listing.Location.Length > 0 ? " - " + listing.Location : "")</td>
-                                <td class="userHome_listing_td_edit"><span class="userHome_listing_edit link" listingId ="@listing.ListingID">edit</span>  &nbsp; |</td>
-                                <td class="userHome_listing_td_editImgs"><span class="userHome_listing_editImgs link" listingId ="@listing.ListingID">images</span>  &nbsp; |</td>
-                                <td class="userHome_listing_td_activate"><span class="userHome_listing_activate link" listingId ="@listing.ListingID"> activate </span> </td>
-                            </tr>
-                        }
-                    </table>
+                    @if (Model.InactiveUserListings.Count == 0)
+                    {
+                       <div class="userHome_noListingMsg"> No listings available</div>
+                    }
+                    else
+                    {
+                        <table class="listingsTable">
+                            @foreach (Listing listing in Model.InactiveUserListings)
+                            {
+                                <tr class="userHome_listing">
+                                    <td class="userHome_listing_date">@listing.CreatedDate.ToShortDateString()</td>
+                                    <td class="userHome_listing_headLine">@listing.Headline @(listing.Location.Length > 0 ? " - " + listing.Location : "")</td>
+                                    <td class="userHome_listing_td_edit"><span class="userHome_listing_edit link" listingid="@listing.ListingID">edit</span>  &nbsp; |</td>
+                                    <td class="userHome_listing_td_editImgs"><span class="userHome_listing_editImgs link" listingid="@listing.ListingID">images</span>  &nbsp; |</td>
+                                    <td class="userHome_listing_td_activate"><span class="userHome_listing_activate link" listingid="@listing.ListingID"> activate </span> </td>
+                                </tr>
+                            }
+                        </table>
+                    }
+                    
                 </div>   
             </div> 
         </div>

@@ -16,6 +16,7 @@
           <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
           <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="ChartColor" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="City">
           <Key>
@@ -29,6 +30,7 @@
           <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
           <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="PostalCode" Type="varchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="Image">
           <Key>
@@ -103,14 +105,16 @@
           <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Email" Type="nvarchar" MaxLength="60" Nullable="false" />
-          <Property Name="PhoneNum" Type="bigint" />
+          <Property Name="PhoneNum" Type="nvarchar" MaxLength="50" />
           <Property Name="Password" Type="nvarchar" MaxLength="15" Nullable="false" />
           <Property Name="CreatedDate" Type="datetime" Nullable="false" />
           <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
           <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="Admin" Type="bit" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
         </EntityType>
-        <Association Name="FK_City_State">
+        <Association Name="FK_City_StateID">
           <End Role="State" Type="Self.State" Multiplicity="1" />
           <End Role="City" Type="Self.City" Multiplicity="*" />
           <ReferentialConstraint>
@@ -122,7 +126,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Image_Listing">
+        <Association Name="FK_Image_ListingID">
           <End Role="Listing" Type="Self.Listing" Multiplicity="1" />
           <End Role="Image" Type="Self.Image" Multiplicity="*" />
           <ReferentialConstraint>
@@ -190,11 +194,11 @@
           <EntitySet Name="State" EntityType="Self.State" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SubCategory" EntityType="Self.SubCategory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_City_State" Association="Self.FK_City_State">
+          <AssociationSet Name="FK_City_StateID" Association="Self.FK_City_StateID">
             <End Role="State" EntitySet="State" />
             <End Role="City" EntitySet="City" />
           </AssociationSet>
-          <AssociationSet Name="FK_Image_Listing" Association="Self.FK_Image_Listing">
+          <AssociationSet Name="FK_Image_ListingID" Association="Self.FK_Image_ListingID">
             <End Role="Listing" EntitySet="Listing" />
             <End Role="Image" EntitySet="Image" />
           </AssociationSet>
@@ -231,6 +235,7 @@
           <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
           <NavigationProperty Name="SubCategories" Relationship="Self.FK_SubCategory_Category" FromRole="Category" ToRole="SubCategory" />
+          <Property Name="ChartColor" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Listing">
           <Key>
@@ -250,9 +255,9 @@
           <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
           <NavigationProperty Name="SubCategory" Relationship="Self.FK_Listing_SubCategory" FromRole="Listing" ToRole="SubCategory" />
           <NavigationProperty Name="City" Relationship="CoreysListModel.FK_Listing_City" FromRole="Listing" ToRole="City" />
-          <NavigationProperty Name="User" Relationship="CoreysListModel.FK_Listing_User" FromRole="Listing" ToRole="User" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Images" Relationship="CoreysListModel.FK_Image_Listing" FromRole="Listing" ToRole="Image" />
+          <NavigationProperty Name="User" Relationship="CoreysListModel.FK_Listing_User" FromRole="Listing" ToRole="User" />
         </EntityType>
         <EntityType Name="State">
           <Key>
@@ -328,15 +333,15 @@
             <End Role="City" EntitySet="Cities" />
             <End Role="Listing" EntitySet="Listings" />
           </AssociationSet>
-          <EntitySet Name="Users" EntityType="CoreysListModel.User" />
-          <AssociationSet Name="FK_Listing_User" Association="CoreysListModel.FK_Listing_User">
-            <End Role="User" EntitySet="Users" />
-            <End Role="Listing" EntitySet="Listings" />
-          </AssociationSet>
           <EntitySet Name="Images" EntityType="CoreysListModel.Image" />
           <AssociationSet Name="FK_Image_Listing" Association="CoreysListModel.FK_Image_Listing">
             <End Role="Listing" EntitySet="Listings" />
             <End Role="Image" EntitySet="Images" />
+          </AssociationSet>
+          <EntitySet Name="Users" EntityType="CoreysListModel.User" />
+          <AssociationSet Name="FK_Listing_User" Association="CoreysListModel.FK_Listing_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Listing" EntitySet="Listings" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="City">
@@ -353,6 +358,7 @@
           <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
           <NavigationProperty Name="State" Relationship="CoreysListModel.FK_City_State" FromRole="City" ToRole="State" />
           <NavigationProperty Name="Listings" Relationship="CoreysListModel.FK_Listing_City" FromRole="City" ToRole="Listing" />
+          <Property Name="PostalCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK_City_State">
           <End Type="CoreysListModel.State" Role="State" Multiplicity="1" />
@@ -375,34 +381,6 @@
             </Principal>
             <Dependent Role="Listing">
               <PropertyRef Name="CityID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="User">
-          <Key>
-            <PropertyRef Name="UserID" />
-          </Key>
-          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
-          <Property Name="PhoneNum" Type="Int64" />
-          <Property Name="Password" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
-          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="Listings" Relationship="CoreysListModel.FK_Listing_User" FromRole="User" ToRole="Listing" />
-        </EntityType>
-        <Association Name="FK_Listing_User">
-          <End Type="CoreysListModel.User" Role="User" Multiplicity="1" />
-          <End Type="CoreysListModel.Listing" Role="Listing" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="UserID" />
-            </Principal>
-            <Dependent Role="Listing">
-              <PropertyRef Name="UserID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -441,6 +419,36 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="Admin" Type="Boolean" Nullable="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Listings" Relationship="CoreysListModel.FK_Listing_User" FromRole="User" ToRole="Listing" />
+        </EntityType>
+        <Association Name="FK_Listing_User">
+          <End Type="CoreysListModel.User" Role="User" Multiplicity="1" />
+          <End Type="CoreysListModel.Listing" Role="Listing" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Listing">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -450,6 +458,7 @@
           <EntitySetMapping Name="Categories">
             <EntityTypeMapping TypeName="CoreysListModel.Category">
               <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="ChartColor" ColumnName="ChartColor" />
                 <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
                 <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
                 <ScalarProperty Name="SeqNum" ColumnName="SeqNum" />
@@ -509,6 +518,7 @@
           <EntitySetMapping Name="Cities">
             <EntityTypeMapping TypeName="CoreysListModel.City">
               <MappingFragment StoreEntitySet="City">
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
                 <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
                 <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
@@ -517,22 +527,6 @@
                 <ScalarProperty Name="CityName" ColumnName="CityName" />
                 <ScalarProperty Name="StateID" ColumnName="StateID" />
                 <ScalarProperty Name="CityID" ColumnName="CityID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="CoreysListModel.User">
-              <MappingFragment StoreEntitySet="User">
-                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="PhoneNum" ColumnName="PhoneNum" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-                <ScalarProperty Name="UserID" ColumnName="UserID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -556,6 +550,24 @@
                 <ScalarProperty Name="Caption" ColumnName="Caption" />
                 <ScalarProperty Name="ListingID" ColumnName="ListingID" />
                 <ScalarProperty Name="ImageID" ColumnName="ImageID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="CoreysListModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Admin" ColumnName="Admin" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="PhoneNum" ColumnName="PhoneNum" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

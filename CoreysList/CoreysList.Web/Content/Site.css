@@ -1,8 +1,8 @@
 ﻿/***************************************/
 /*Global*/
 /***************************************/
-body {}
-.footer { text-align: center; height: 25px; width: 100%; padding: 5px; padding-bottom: 0px; background-color: #e0e1e2; margin-bottom: 0px; border-top: 1px solid black; }
+body { min-height: 100%; padding-bottom: 40px; }
+.footer { height: 35px; background-color: #e0e1e2; position: fixed; bottom: 0px; width: 100%; border-top: 1px solid black; padding-top: 5px; font-size: 12px; text-align: center;  } 
 .center { margin-left: auto; margin-right: auto; text-align: center; }
 .clear { clear:both }
 .error { color:#ff0000; margin-left: 7px; font-size: 12px; }
@@ -14,7 +14,7 @@ body {}
 /***************************************/
 .home_wrapper {font-family: "Arial",sans-serif; vertical-align: baseline; height: 100%; width: 100%; position: relative; background-color: white; padding: 0px; margin: 0px; }
     .home_pageContainer { display: block; vertical-align: baseline;  margin-left: auto; margin-right: auto; height: auto; width: 910px ; background-color: grey; position: relative; }
-        .home_leftBar {  border-left: 1px solid #808080; border-right: 1px solid #808080; vertical-align: top; min-height: 800px; width: 200px; float: left; text-align: center; background-color: #e0e1e2; position: relative;  }
+        .home_leftBar {  border-left: 1px solid #808080; border-right: 1px solid #808080; vertical-align: top; min-height: 100%; width: 200px; float: left; text-align: center; background-color: #e0e1e2; position: relative;  height: 100%; }
             .home_leftBar_logo{ margin-top: 10px; font-size: 20px; color: #0a47b4 ; margin-left: auto; margin-right: auto; text-shadow: 2px 2px 2px #CCCCCC; width: auto; cursor: pointer; }
             .home_leftBar_menu{ text-align: left; color: #0a47b4; list-style-type: none; padding-left: 15px; }
                 .home_leftBar_menu_item{ padding-bottom: 10px; cursor: pointer;}
@@ -45,18 +45,18 @@ body {}
                 .home_center_category_header{ font-size: 17px; border-top: 1px solid #808080; border-bottom: 1px solid #808080; color: #0a47b4; width: 150px; margin-left: auto; margin-right: auto; text-align: center; margin-top: 20px; padding-top: 5px; padding-bottom: 5px; background-color: #e0e1e2; }
                 .home_center_subcategory_list{ list-style-type: none; margin-left: auto; margin-right: auto; }
                     .home_center_subcategory_list_item{ color: #0a47b4; font-size:13px; cursor: pointer; padding-bottom: 5px; }
-        .home_rightBar { border-left: 1px solid #808080; border-right: 1px solid #808080; display: block; width: 100px; min-height: 800px; background-color: #e0e1e2; float: left; position: relative; }
+        .home_rightBar { border-left: 1px solid #808080; border-right: 1px solid #808080; display: block; width: 100px; min-height: 100%; background-color: #e0e1e2; float: left; position: relative; height: 100%; }
             .home_rightBar_usCitiesHeader { color: #0a47b4 ; text-align: center; margin-top: 5px; }
             .home_rightBar_usCitiesList { margin-left: -20px; margin-top: 1px; }
                 .home_rightBar_usCitiesItem { list-style-type: none; font-size: 11px; color: #0a47b4; padding-bottom: 2px; cursor: pointer; }
             .home_rightBar_usStatesHeader { color: #0a47b4 ; text-align: center; margin-top: 5px; }
             .home_rightBar_usStatesList { margin-left: -20px; margin-top: 1px; }
-                .home_rightBar_usStatesItem { list-style-type: none; font-size: 11px; color: #0a47b4; padding-bottom: 2px; }  
+                .home_rightBar_usStatesItem { list-style-type: none; font-size: 11px; color: #0a47b4; padding-bottom: 2px; cursor: pointer; }  
 
 /***************************************/
 /*LOCATOR PAGE*/
 /***************************************/
-.locator_wrapper { font-family: "Arial",sans-serif; vertical-align: baseline; height: 100%; width: 100%; position: relative; background-color: white; }
+.locator_wrapper { font-family: "Arial",sans-serif; vertical-align: baseline; min-height: 100%; width: 100%; position: relative; background-color: white;  }
     .locator_pageContainer { display: block; vertical-align: baseline;  margin-left: auto; margin-right: auto; height: auto; width: 800px ; background-color: white; position: relative; }
         .locator_logo { padding-top:20px; display: block; vertical-align: baseline;  margin-left: auto; margin-right: auto; height: 100px ; width: 800px ; background-color: white; position: relative; text-align: center; font-size: 70px; margin-bottom: 0px; text-decoration:wavy; }
         .locator_instuctions { display: block; vertical-align: baseline;  margin-left: auto; margin-right: auto; height: 50px ; width: 800px ; background-color: white; position: relative; text-align: left; font-family: "Times New Roman",Times,serif; font-size: 25px; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #808080; margin-bottom: 5px; }
@@ -75,7 +75,7 @@ body {}
 /***************************************/
 /*STATESELECTOR PAGE*/
 /***************************************/
-.stateSelector_wrapper { font-family: "Arial",sans-serif; vertical-align: baseline; height: 100%; width: 100%; position: relative; background-color: white; }
+.stateSelector_wrapper { font-family: "Arial",sans-serif; vertical-align: baseline; min-height: 100%; width: 100%; position: relative; background-color: white; }
     .stateSelector_pageContainer{ display: block; vertical-align: baseline;  margin-left: auto; margin-right: auto; height: auto; width: 800px ; background-color: white; position: relative; text-align: center;}
         .stateSelector_stateHeader {  padding-top:20px; display: block; vertical-align: baseline;  margin-left: auto; margin-right: auto; width: 800px; background-color: white; position: relative; text-align: center; font-size: 40px; margin-bottom: 0px; text-decoration:wavy; } 
         .stateSelector_cityList { margin-left: auto; margin-right: auto; text-align: left; width: 150px; }
@@ -119,7 +119,8 @@ body {}
                 .userHome_listing_headLine { }
                 .userHome_listing_edit { width: 58px;  }
                 .userHome_listing_td_edit { width: 50px;}
-                .userHome_listing_td_activate { width: 10px; }
+                .userHome_listing_td_editImgs { width: 67px; }
+                .userHome_listing_td_activate {  width: 50px; }
 
 /***************************************/
 /*_Edit Listings Partial*/
@@ -200,3 +201,27 @@ body {}
       .displayListing_content_discription { }
       .displayListing_content_breadCrumb { font-size: 25px; color: #0a47b4; margin-bottom: 20px; }
 
+/***************************************/
+/*SEARCH RESULTS*/
+/***************************************/
+.displaySearchResults_wrapper { font-family: "Arial",sans-serif; vertical-align: baseline; height: 100%; width: 100%; position: relative; background-color: white; }    
+    .displaySearchResults_pageContainer { display: block; vertical-align: baseline;  margin-left: auto; margin-right: auto; height: auto; width: 1100px ; background-color: white; position: relative; }
+    .displaySearchResults_header { padding: 20px; padding-bottom: 0px; display: inline-block; width: 100%; margin-bottom: 20px;  } 
+        #displaySearchResults_header_currentCity { font-size: 30px;  }
+        #displaySearchResults_header_returnLink { font-size: 35px; color: #0a47b4; cursor: pointer;  }
+    .displaySearchResults_leftContent { width: 200px; float: left;  }
+        .displaySearchResults_leftContentHeader { font-size: 25px; padding-top: 10px; padding-bottom: 0px; width: auto; text-decoration: underline; text-align: center;   }
+        .displaySearchResults_leftContentFilter { font-size: 16px; padding-top: 10px; list-style: none;   }
+            #stateFilter { padding-bottom: 10px; }
+            #check2 { padding-bottom: 10px; }
+            #applyFiltersBtn { margin-left: 40px; }
+    .displaySearchResults_rightContent { padding-left: 20px; width: 850px; float: left; min-height: 300px; border-left: 1px solid; }
+        .displaySearchResults_listing_date { width: 100px; }
+        .displaySearchResults_listing_headLine { width: 350px; }
+        .displaySearchResults_listing_location { width: 150px; }
+        .displaySearchResults_listing_price { width: 100px; }
+        .displaySearchResults_listing { color: #0a47b4; cursor: pointer; }
+        .displaySearchResults_thumbListing { padding: 5px; cursor: pointer; font-size: 15px;  }
+            .displaySearchResults_thumbListing_thumb { float: left; }
+            .displaySearchResults_thumbListing_thumbdesc { float: left; margin-left: 12px; vertical-align: middle;  }
+        .displaySearchResults_galleryListing { display: inline-block; padding: 5px; cursor: pointer; text-align: center; vertical-align: middle; font-size: 15px; width: 300px; }

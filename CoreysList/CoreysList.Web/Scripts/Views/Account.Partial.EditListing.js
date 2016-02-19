@@ -24,7 +24,7 @@
 			data: { "stateId": stateId },
 			success: function (json) {
 				if (json.Success) {
-					$("#cities").html(json.SelectOptionsHtml);
+				    $("#citiesSelectList").html(json.SelectOptionsHtml);
 				} else {
 					alert(json.Error);
 				}

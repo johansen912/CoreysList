@@ -35,7 +35,7 @@ namespace CoreysList.Entity
     
         public virtual SubCategory SubCategory { get; set; }
         public virtual City City { get; set; }
-        public virtual User User { get; set; }
         public virtual ICollection<Image> Images { get; set; }
+        public virtual User User { get; set; }
     }
 }

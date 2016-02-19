@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.ComponentModel.DataAnnotations;
 using CoreysList.Entity;
-using System.Web.Mvc;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-
 
 namespace CoreysList.Web.Models
 {
@@ -14,10 +7,9 @@ namespace CoreysList.Web.Models
     {
          #region Constructors
 
-        //constructor for the model
+        // constructor for the model
         public LoginViewModel()
         {
-            CoreysListEntities Db = new CoreysListEntities();
         }
 
         #endregion
@@ -25,17 +17,22 @@ namespace CoreysList.Web.Models
         #region Properties
 
         public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Email { get; set; }
-        [Display(Name ="Phone#:", Prompt = "###-###-####")]
 
-        //[DisplayName("Phone#:")]
+        public string LastName { get; set; }
+
+        public string Email { get; set; }
+
+        [Display(Name = "Phone#:", Prompt = "###-###-####")]
         public string PhoneNumber { get; set; }
+
         public string Password { get; set; }
+
         public string LoginErrorMessage { get; set; }
+
         public string CreateAccountErrorMessage { get; set; }
 
         public string LoginEmail { get; set; }
+
         public string LoginPassword { get; set; }
 
         #endregion

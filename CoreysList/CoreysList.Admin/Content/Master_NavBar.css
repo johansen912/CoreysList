@@ -1,0 +1,8 @@
+﻿body{ margin: 0px; padding: 0px; background-color: #47a0e0; }
+.Master_navBar {  height: 80px; background-color: #0094ff; padding-top: 0px; padding-left: 50px; margin-top: -16px;   }
+    .Master_navbarLogo {  float: left; margin-right: 40px; margin-top: 12px;  font-size: 25px; color: white; }
+    .Master_nav_contentContainer { margin: 0; padding: 0; margin-left: 50px;  }
+            .Master_nav_contentContainer ul li { list-style: none; margin: 0; padding: 0; margin-left: 200px;   }
+                .Master_nav_contentContainer ul li a { text-decoration: none; float:left; display: block; margin-right: 40px; margin-top: 17px;  color: white; font-size: 18px; padding: 8px; }
+                .Master_nav_contentContainer ul li a:hover { background-color: white; color: #0094ff; border-radius: 9px;  }            
+    .Master_navbarLogOut { float: right; font-size: 18px; color: white; margin-top: 17px; margin-right: 100px; cursor: pointer;   }

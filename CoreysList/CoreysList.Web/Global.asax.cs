@@ -10,8 +10,6 @@ using System.Web.Routing;
 namespace CoreysList.Web
 {
     // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
-    // visit http://go.microsoft.com/?LinkId=9394801
-
     public class MvcApplication : System.Web.HttpApplication
     {
         protected void Application_Start()
@@ -22,6 +20,25 @@ namespace CoreysList.Web
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+        }
+
+        protected void Application_Error(object sender, EventArgs e)
+        {
+            Exception exception = Server.GetLastError();
+
+            while (exception.InnerException != null)
+            {
+                exception = exception.InnerException;
+            }
+
+            HttpException httpException = exception as HttpException;
+            string file_name = System.Web.HttpContext.Current.Server.MapPath(@"~/Logs/errors.txt");
+
+            System.IO.StreamWriter errorWriter;
+            errorWriter = new System.IO.StreamWriter(file_name);
+
+            errorWriter.Write(exception.Message);
+            errorWriter.Close();
         }
     }
 }

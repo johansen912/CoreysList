@@ -12,7 +12,7 @@ $(document).ready(function($){
     });
 
     $(".displayListing_breadCrumb_homeLink").click(function () {
-        document.location.href = "/"
+        document.location.href = "/";
     });
 
     $(".displayListing_breadCrumb_homeLink").click(function () {

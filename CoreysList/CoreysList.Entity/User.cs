@@ -23,12 +23,14 @@ namespace CoreysList.Entity
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
-        public Nullable<long> PhoneNum { get; set; }
+        public string PhoneNum { get; set; }
         public string Password { get; set; }
         public System.DateTime CreatedDate { get; set; }
         public string CreatedBy { get; set; }
         public string ModifiedBy { get; set; }
         public Nullable<System.DateTime> ModifiedDate { get; set; }
+        public bool Admin { get; set; }
+        public bool Active { get; set; }
     
         public virtual ICollection<Listing> Listings { get; set; }
     }

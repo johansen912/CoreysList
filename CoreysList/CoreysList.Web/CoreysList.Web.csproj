@@ -46,6 +46,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -137,6 +138,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\DisplayListingViewModel.cs" />
+    <Compile Include="Models\DisplaySearchResultsViewModel.cs" />
     <Compile Include="Models\EditListingImagesViewModel.cs" />
     <Compile Include="Models\EditListingViewModel.cs" />
     <Compile Include="Models\HomeIndexViewModel.cs" />
@@ -148,6 +150,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Images\defaultListingImage.gif" />
+    <Content Include="Content\Images\defaultListingThumb.gif" />
     <Content Include="Content\Images\help.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -211,6 +215,7 @@
     <Content Include="Scripts\jquery-1.9.0.min.js" />
     <Content Include="Scripts\jquery-1.9.0.min.map" />
     <Content Include="Content\n22kekrl.rw5~" />
+    <None Include="Properties\PublishProfiles\CoreysListPublic.pubxml" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <None Include="Scripts\jquery-1.9.0-vsdoc.js" />
     <Content Include="Scripts\jquery-migrate-1.2.1.js" />
@@ -236,14 +241,9 @@
     <Content Include="Scripts\Views\Home.Locator.js" />
     <Content Include="Scripts\Views\Home.StateSelector.js" />
     <Content Include="Scripts\Views\Listings.DisplayListing.js" />
+    <Content Include="Scripts\Views\Listings.DisplaySearchResults.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
-    <Content Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
-    <Content Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
+    <Content Include="web.config" />
     <Content Include="Views\Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -262,9 +262,11 @@
     <Content Include="Views\Listings\ViewListings.cshtml" />
     <Content Include="Scripts\Views\Listings.ViewListings.js" />
     <Content Include="Views\Listings\DisplayListing.cshtml" />
+    <Content Include="Views\Listings\DisplaySearchResults.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Logs\" />
     <Folder Include="obj\" />
   </ItemGroup>
   <ItemGroup>

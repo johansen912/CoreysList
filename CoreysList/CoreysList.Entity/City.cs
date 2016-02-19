@@ -27,6 +27,7 @@ namespace CoreysList.Entity
         public string CreatedBy { get; set; }
         public string ModifiedBy { get; set; }
         public Nullable<System.DateTime> ModifiedDate { get; set; }
+        public string PostalCode { get; set; }
     
         public virtual State State { get; set; }
         public virtual ICollection<Listing> Listings { get; set; }

@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.SessionState;
 using CoreysList.Entity;
-using System.Web.Mvc;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
 
 namespace CoreysList.Web.Models
 {
@@ -14,20 +8,22 @@ namespace CoreysList.Web.Models
     {
         #region Constructors
 
-        //constructor for the model
-        public EditListingImagesViewModel() { }
+        // constructor for the model
+        public EditListingImagesViewModel() 
+        {
+        }
 
         public EditListingImagesViewModel(int listingId)
         {
+            // check to make sure user is logged in
             if (System.Web.HttpContext.Current.Session["UserId"] != null)
             {
-                CoreysListEntities Db = new CoreysListEntities();
-                ImageIds = Db.Images.Where(i => i.ListingID == listingId).Select(i => i.ImageID).ToList();
+                CoreysListEntities db = new CoreysListEntities();
+
+                // retrieve the image ids matching the listing id
+                ImageIds = db.Images.Where(i => i.ListingID == listingId).Select(i => i.ImageID).ToList();
                 ListingId = listingId;
-
             }
-
-
         }
 
         #endregion
@@ -35,9 +31,9 @@ namespace CoreysList.Web.Models
         #region Properties
 
         public List<int> ImageIds { get; set; }
+
         public int ListingId { get; set; }
 
         #endregion
-
     }
 }

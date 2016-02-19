@@ -26,6 +26,7 @@ namespace CoreysList.Entity
         public string CreatedBy { get; set; }
         public string ModifiedBy { get; set; }
         public Nullable<System.DateTime> ModifiedDate { get; set; }
+        public string ChartColor { get; set; }
     
         public virtual ICollection<SubCategory> SubCategories { get; set; }
     }
