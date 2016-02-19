@@ -1,0 +1,62 @@
+﻿/***************************************/
+/*Global*/
+/***************************************/
+body {}
+.clear{ clear:both }
+
+/***************************************/
+/*HOME PAGE*/
+/***************************************/
+.home_wrapper {font-family: "Arial",sans-serif; vertical-align: baseline; height: 100%; width: 100%; position: relative; background-color: white; }
+    .home_pageContainer { display: block; vertical-align: baseline;  margin-left: auto; margin-right: auto; height: auto; width: 900px ; background-color: grey; position: relative; }
+        .home_leftBar {  vertical-align: top; min-height: 800px; width: 200px; float: left; text-align: center; background-color: darkolivegreen; position: relative; }
+        .home_center { display: block; float: left; width: 600px; min-height: 760px; background-color: aliceblue;position: relative; }
+            .home_topBanner { text-align: center; width: 600px; height: 40px; background-color: yellowgreen; }
+            .home_center_leftContent { display: block; vertical-align: baseline; min-height: 760px; width: 200px; background-color:purple; float: left; }
+            .home_center_centerContent { display: block; vertical-align: baseline; min-height: 760px; width: 200px; float: left; background-color: darkorange; }
+            .home_center_rightContent { display: block; vertical-align: baseline; min-height: 760px; width: 200px; float: left; background-color:teal;}
+        .home_rightBar { display: block; width: 100px; min-height: 800px; background-color: #e0e1e2; float: left; position: relative; }
+            .home_rightBar_usCitiesHeader { color: #0a47b4 ; text-align: center; margin-top: 5px; }
+            .home_rightBar_usCitiesList { margin-left: -20px; margin-top: 1px; }
+                .home_rightBar_usCitiesItem { list-style-type: none; font-size: 11px; color: #0a47b4; padding-bottom: 2px; cursor: pointer; }
+            .home_rightBar_usStatesHeader { color: #0a47b4 ; text-align: center; margin-top: 5px; }
+            .home_rightBar_usStatesList { margin-left: -20px; margin-top: 1px; }
+                .home_rightBar_usStatesItem { list-style-type: none; font-size: 11px; color: #0a47b4; padding-bottom: 2px; }
+            .home_modal_faq { }
+               .home_faq_modal_list { font-weight: bold; font-size: 13px; }
+               .home_faq_modal_list_item {  }
+                 .faq_answers { font-weight: normal; }
+
+    .home_footer { text-align: center; height: 25px; width: 100%; padding: 5px; background-color: lime; margin: 0px; }
+
+
+/***************************************/
+/*LOCATOR PAGE*/
+/***************************************/
+.locator_wrapper { font-family: "Arial",sans-serif; vertical-align: baseline; height: 100%; width: 100%; position: relative; background-color: white; }
+    .locator_pageContainer { display: block; vertical-align: baseline;  margin-left: auto; margin-right: auto; height: auto; width: 800px ; background-color: white; position: relative; }
+        .locator_logo { padding-top:20px; display: block; vertical-align: baseline;  margin-left: auto; margin-right: auto; height: 100px ; width: 800px ; background-color: white; position: relative; text-align: center; font-size: 70px; margin-bottom: 0px; text-decoration:wavy; }
+        .locator_instuctions { display: block; vertical-align: baseline;  margin-left: auto; margin-right: auto; height: 50px ; width: 800px ; background-color: white; position: relative; text-align: left; font-family: "Times New Roman",Times,serif; font-size: 25px; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #808080; margin-bottom: 5px; }
+        .locator_stateColumn1 {  display: block; vertical-align: baseline; min-height: 760px; width: 200px; background-color:white; float: left; padding-top : 9px;}
+            .locator_stateColumn1_cityList { margin-top: 5px; }
+            .locator_stateColumn_listItem { list-style-type: none; color: #0a47b4; cursor: pointer; }
+        .locator_stateColumn2 {  display: block; vertical-align: baseline; min-height: 760px; width: 200px; background-color: white; float: left; padding-top : 9px; }
+            .locator_stateColumn2_cityList { margin-top: 5px; }
+        .locator_stateColumn3 {  display: block; vertical-align: baseline; min-height: 760px; width: 200px; background-color: white; float: left; padding-top :9px; }
+            .locator_stateColumn3_cityList { margin-top: 5px; }
+        .locator_stateColumn4 {  display: block; vertical-align: baseline; min-height: 760px; width: 200px; background-color : white; float: left; padding-top : 9px; }
+            .locator_stateColumn4_cityList { margin-top: 5px; }
+            .locator_state_header { padding-left: 10px; margin-top: -5px; }
+            .locator_lowerBorder { width: 120px; margin-left: auto; margin-right: auto; border-bottom-style: solid; border-bottom-width: 1px; border-bottom-color: #808080; margin-bottom: 10px; }
+    .locator_footer { text-align: center; height: 25px; width: 100%; padding-top: 5px; background-color: lime; margin: 0px;}
+
+/***************************************/
+/*STATESELECTOR PAGE*/
+/***************************************/
+.stateSelector_wrapper { font-family: "Arial",sans-serif; vertical-align: baseline; height: 100%; width: 100%; position: relative; background-color: white; }
+    .stateSelector_pageContainer{ display: block; vertical-align: baseline;  margin-left: auto; margin-right: auto; height: auto; width: 800px ; background-color: white; position: relative; text-align: center;}
+        .stateSelector_stateHeader {  padding-top:20px; display: block; vertical-align: baseline;  margin-left: auto; margin-right: auto; width: 800px; background-color: white; position: relative; text-align: center; font-size: 40px; margin-bottom: 0px; text-decoration:wavy; } 
+        .stateSelector_cityList { margin-left: auto; margin-right: auto; text-align: left; width: 150px; }
+            .stateSelector_cityItem { list-style-type: none; font-size: 20px; color: #0a47b4; padding-bottom: 6px; cursor: pointer; }
+    .stateSelector_footer{ text-align: center; height: 25px; width: 100%; padding-top: 5px; background-color: lime; margin: 0px;}
+    

@@ -17,13 +17,23 @@
 [Rr]eleases/
 x64/
 x86/
+<<<<<<< HEAD
 build/
+=======
+>>>>>>> b0d7d0c430b3f9120f64429528a00a75141eb7d6
 bld/
 [Bb]in/
 [Oo]bj/
 
+<<<<<<< HEAD
 # Visual Studo 2015 cache/options directory
 .vs/
+=======
+# Visual Studio 2015 cache/options directory
+.vs/
+# Uncomment if you have tasks that create the project's static files in wwwroot
+#wwwroot/
+>>>>>>> b0d7d0c430b3f9120f64429528a00a75141eb7d6
 
 # MSTest test Results
 [Tt]est[Rr]esult*/
@@ -38,6 +48,13 @@ TestResult.xml
 [Rr]eleasePS/
 dlldata.c
 
+<<<<<<< HEAD
+=======
+# DNX
+project.lock.json
+artifacts/
+
+>>>>>>> b0d7d0c430b3f9120f64429528a00a75141eb7d6
 *_i.c
 *_p.c
 *_i.h
@@ -70,6 +87,10 @@ _Chutzpah*
 ipch/
 *.aps
 *.ncb
+<<<<<<< HEAD
+=======
+*.opendb
+>>>>>>> b0d7d0c430b3f9120f64429528a00a75141eb7d6
 *.opensdf
 *.sdf
 *.cachefile
@@ -78,6 +99,10 @@ ipch/
 *.psess
 *.vsp
 *.vspx
+<<<<<<< HEAD
+=======
+*.sap
+>>>>>>> b0d7d0c430b3f9120f64429528a00a75141eb7d6
 
 # TFS 2012 Local Workspace
 $tf/
@@ -90,7 +115,11 @@ _ReSharper*/
 *.[Rr]e[Ss]harper
 *.DotSettings.user
 
+<<<<<<< HEAD
 # JustCode is a .NET coding addin-in
+=======
+# JustCode is a .NET coding add-in
+>>>>>>> b0d7d0c430b3f9120f64429528a00a75141eb7d6
 .JustCode
 
 # TeamCity is a build add-in
@@ -102,6 +131,10 @@ _TeamCity*
 # NCrunch
 _NCrunch_*
 .*crunch*.local.xml
+<<<<<<< HEAD
+=======
+nCrunchTemp_*
+>>>>>>> b0d7d0c430b3f9120f64429528a00a75141eb7d6
 
 # MightyMoose
 *.mm.*
@@ -142,6 +175,7 @@ publish/
 !**/packages/build/
 # Uncomment if necessary however generally it will be regenerated when needed
 #!**/packages/repositories.config
+<<<<<<< HEAD
 
 # Windows Azure Build Output
 csx/
@@ -154,6 +188,35 @@ AppPackages/
 *.[Cc]ache
 ClientBin/
 [Ss]tyle[Cc]op.*
+=======
+# NuGet v3's project.json files produces more ignoreable files
+*.nuget.props
+*.nuget.targets
+
+# Microsoft Azure Build Output
+csx/
+*.build.csdef
+
+# Microsoft Azure Emulator
+ecf/
+rcf/
+
+# Microsoft Azure ApplicationInsights config file
+ApplicationInsights.config
+
+# Windows Store app package directory
+AppPackages/
+BundleArtifacts/
+
+# Visual Studio cache files
+# files ending in .cache can be ignored
+*.[Cc]ache
+# but keep track of directories ending in .cache
+!*.[Cc]ache/
+
+# Others
+ClientBin/
+>>>>>>> b0d7d0c430b3f9120f64429528a00a75141eb7d6
 ~$*
 *~
 *.dbmdl
@@ -161,7 +224,11 @@ ClientBin/
 *.pfx
 *.publishsettings
 node_modules/
+<<<<<<< HEAD
 bower_components/
+=======
+orleans.codegen.cs
+>>>>>>> b0d7d0c430b3f9120f64429528a00a75141eb7d6
 
 # RIA/Silverlight projects
 Generated_Code/
@@ -186,6 +253,12 @@ UpgradeLog*.htm
 # Microsoft Fakes
 FakesAssemblies/
 
+<<<<<<< HEAD
+=======
+# GhostDoc plugin setting file
+*.GhostDoc.xml
+
+>>>>>>> b0d7d0c430b3f9120f64429528a00a75141eb7d6
 # Node.js Tools for Visual Studio
 .ntvs_analysis.dat
 
@@ -194,3 +267,20 @@ FakesAssemblies/
 
 # Visual Studio 6 workspace options file
 *.opt
+<<<<<<< HEAD
+=======
+
+# Visual Studio LightSwitch build output
+**/*.HTMLClient/GeneratedArtifacts
+**/*.DesktopClient/GeneratedArtifacts
+**/*.DesktopClient/ModelManifest.xml
+**/*.Server/GeneratedArtifacts
+**/*.Server/ModelManifest.xml
+_Pvt_Extensions
+
+# Paket dependency manager
+.paket/paket.exe
+
+# FAKE - F# Make
+.fake/
+>>>>>>> b0d7d0c430b3f9120f64429528a00a75141eb7d6
